@@ -1,0 +1,116 @@
+.manger_header {
+	position: relative;
+	width: 100%;
+	background-color: #f53737;
+}
+
+.manger_header .wrap {
+	width: 1200px;
+	margin: 0px auto;
+	height: 100px;
+}
+
+.manger_header .manger_header_left {
+position: relative;
+float: left;
+height: 100px;
+overflow: hidden;
+}
+
+.manger_header .manger_header_left .fore1 {
+float: left;
+margin: 10px 0 10px;
+width: 210px;
+height: 80px;
+border-right: 1px solid #B0ACAC;
+}
+
+.manger_header .manger_header_left .fore1 img{
+	width: 100%;
+	height: 100%;
+}
+
+.manger_header .manger_header_left a {
+	text-decoration: none;
+	color: #fff;
+}
+
+.manger_header .manger_header_left .fore2 {
+	float: left;
+	font-size: 20px;
+	font-family: 'Microsoft YaHei';
+	margin: 30px 0 0 20px;
+	height: 22px;
+}
+
+.manger_header .manger_header_left .fore2:hover {
+	text-decoration: underline;
+}
+
+.manger_header .manger_header_left .fore3 {
+	float: left;
+	margin: 60px 0 20px -85px;
+	color: #ffb2b2;
+	border: 1px solid #ffb2b2;
+	height: 18px;
+	line-height: 18px;
+	padding: 0 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+
+.manger_header .manger_header_left .fore3:hover {
+	background: #fff;
+	border-color: #fff;
+	color: #e4393c;
+}
+
+.manger_header .manger_header_right {
+	float: right;
+	margin: 35px 0;
+}
+
+.manger_header .manger_header_right #search {
+	width: auto;
+}
+
+.manger_header .manger_header_right #search .text {
+	width: 260px;
+	border: 2px;
+}
+
+#search .text {
+	float: left;
+	width: 370px;
+	line-height: 24px;
+	color: #666;
+	padding: 4px;
+	border-width: 2px 0 2px 2px;
+	border-color: #B61D1D;
+	border-style: solid;
+	outline: 0;
+	font-size: 14px;
+	font-family: "microsoft yahei";
+}
+
+.manger_header .manger_header_right #search .button {
+	width: 56px;
+	font-size: 12px;
+	height: 32px;
+	color: #333;
+	background-color: #f7f7f7;
+}
+
+#search .button {
+	float: left;
+	width: 82px;
+	height: 36px;
+	background: #B61D1D;
+	border: none;
+	line-height: 1;
+	color: #fff;
+	font-family: "Microsoft YaHei";
+	font-size: 16px;
+	cursor: pointer;
+}

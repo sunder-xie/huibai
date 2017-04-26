@@ -1,0 +1,213 @@
+
+.paycon {
+    position: relative;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    margin: 20px auto;
+}
+
+.paycon > div {
+    padding: 10px 40px 44px;
+}
+
+.payfloor {
+    height: 80px;
+    font-size: 24px;
+    color: #000;
+    line-height: 80px;
+}
+
+.payfloor .title_left{
+	width:600px;
+    float: left;
+}
+.payfloor .title_right{
+	font-size: 16px;
+	color: #5F5656;
+    float: right;
+}
+
+.paytool-title span, .payfloor .title_right span{
+	color: #FC0808;
+	font-size: 26px;
+}
+
+.orderinfo, .payfloor {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.orderinfo {
+    padding-bottom: 15px;
+}
+
+.orderinfo-title {
+    height: 60px;
+    line-height: 60px;
+}
+
+.orderinfo-detail {
+    height: auto;
+    line-height: 30px;
+}
+.orderinfo-detail a {
+    floselectadress-now-usert: right;
+    font-size: 12px;
+    color: #e77d00;
+}
+
+.paytool-title {
+    height: 60px;
+    line-height: 60px;
+    font-size: 20px;
+}
+.paytool_detail{
+    margin-bottom: 10px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+.paytool_detail .paytool_head_bd{
+    height: 50px;
+}
+
+.paytool_detail .paytool_head_bd li {
+    list-style: none;
+	font-size: 14px;
+	height: 50px;
+	line-height: 50px;
+	width: 200px;
+	text-align: center;
+	border: 1px solid #dce7ff;
+	color: #666;
+	float: left;
+	//margin-left: -1px;
+	background-color: #F9FBFF;
+	cursor: pointer;
+	border-bottom-color: #B1D0FF;
+}
+
+.paytool_detail .paytool_head_bd li.active {
+    list-style: none;
+    border-color: #B1D0FF;
+	border-bottom-color: #FFF;
+	z-index: 10;
+	//box-shadow: 0px 0px 4px #B0D0FF;
+	background-color: #FFF;
+	color: #579AFE;
+	position: relative;
+}
+
+.tab_aera {
+    border: 1px solid #bedded;
+    padding: 10px 0 30px 0;
+    *zoom: 1;
+    margin: -1px 0 0 0;
+    height: auto !important;
+    min-height: 100px;
+    height: 100px;
+}
+
+.tab_aera.weixin p {
+    padding-top: 230px;
+    background: url(../../images/wechat.png) no-repeat center top;
+    margin: 50px 0;
+}
+
+.tab_aera{
+    color: #999;
+    text-align: center;
+}
+
+.orderinfo-detail dd {font-size: 12px;color: #666;line-height: 26px;}
+
+.moreorderinfo {
+    font-size: 12px;
+    color: #666;
+    line-height: 50px;
+    margin-right: 5px;
+    color: rgb(231, 0, 0);
+}
+
+.pay_next_btn {
+	border: 1px solid #ff4200 !important;
+	text-align: center;
+	cursor: pointer;
+	height: 45px;
+	width: 150px;
+	color: #ff4200;
+	border-radius: 3px;
+	float: left;
+	padding: 0 !important;
+	line-height: 45px;
+	margin-top: 30px !important;
+	background: #ff4200;
+	color: #fff;
+}
+
+.pay_weixin {
+margin-top: 15px;
+text-align: center;
+padding: 20px 0 50px 0;
+}
+
+.pay_weixin p {
+margin-bottom: 50px;
+font-size: 24px;
+font-family: "Microsoft Yahei";
+margin-top: 10px;
+}
+
+.pay_weixin .price {
+    margin-left: 8px;
+    font-size: 30px;
+    font: 20px/1.5 Arial;
+    color: #F60;
+}
+.pay-result{
+	
+}
+.pub {
+    text-align: center;
+    padding: 0 40px 50px 40px;
+}
+.pub .info {
+    padding: 70px 0;
+    border-bottom: 1px dashed #efeae3;
+}
+.pub .ok {
+    width: 68px;
+    height: 68px;
+    margin: 2px auto 48px auto;
+    display: block;
+    background: url(../../../images/xianfa_0.png);
+}
+.pub h2 {
+    font-size: 20px;
+    font-weight: normal;
+    margin-bottom: 20px;
+    line-height: 26px;
+    color: #666;
+}
+.pub p {
+    font-size: 14px;
+    color: #666;
+    line-height: 22px;
+}
+.pub .btnDiv {
+    width: 411px;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+.pub .btnDiv .btn0 {
+    background: #cf3128;
+}
+.pub .btnDiv .btn {
+    font-size: 14px;
+    width: 190px;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+}
+.pub .btnDiv .btn1 {
+    margin-left: 31px;
+    background: #98C13D;
+}

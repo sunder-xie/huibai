@@ -1,0 +1,172 @@
+.global_nav {
+	border-bottom: 2px solid rgb(236, 7, 7);
+}
+
+.global_nav_bar {
+	position: relative;
+    width: 1200px;
+    height: 38px;
+    margin: 0 auto;
+}
+
+.goods_nav {
+	width: 210px;
+	height: 38px;
+	background: #e31939;
+	line-height: 38px;
+	text-align: left;
+	font-size: 16px;
+	color: #fff;
+	float: left;
+	padding: 0 15px;
+}
+
+.nav_index{}
+.all_hook{font-size: 15px;
+display: block;
+width: 190px;
+height: 36px;
+text-align: center;
+color: rgb(255, 255, 255);
+line-height: 41px;}
+
+.nav_index span{background: url("../../images/nav.png") repeat scroll 0% 0%;
+display: block;
+margin-left: -10px;
+width: 160px;}
+
+.ng-nav-right-txtact {
+    display: block;
+    margin-top: 15px;
+    float: right;
+}
+
+.func_nav{float: left; padding-left:20px; }
+.func_nav ul{margin: 0px; padding: 0px;}
+.func_nav ul li{display: inline-block;padding:0 20px;line-height: 38px;font-size: 16px;font-weight: bolder;color:#716666;cursor: pointer;}
+.func_nav ul li a{color:#716666;}
+.func_nav ul li a:hover{color:#e31939}
+
+
+.wrap_nav{
+	margin-left: -15px;
+	z-index: 100;
+	position: absolute;
+	top: 40px;
+	height: 450px;
+	}
+.all-sort-list{
+	position:relative;
+	width:210px;
+	border:0px solid #E4393C;
+	border-top:none;
+	/* padding: 0 3px 0 3px; */
+	background:#FAFAFA;
+	height: 450px;}
+	
+.all-sort-list .item{
+	height:30px;
+	border-top:1px solid #FFFFFF;}
+.all-sort-list .item h3{
+	height: 30px;
+	line-height: 30px;
+	font-size: 13px;
+	font-weight: normal;
+	width: 210px;
+	overflow: hidden;
+	margin: auto;
+	padding-left: 23px;
+}
+.all-sort-list .hover h3{position:relative;z-index:13;background:#FFF;border-color:#DDD;border-width:1px 0px;border-style:solid;}
+.all-sort-list .item span{
+	position: absolute;
+	left: 6px;
+	width: 20px;
+	height: 20px;
+	margin-right: 0;
+	margin-top: 5px;
+	background: url(images/logo/whale-256x256.png) center center no-repeat;
+	background-size: cover;
+} 
+.all-sort-list .item a{color:#000;text-decoration:none;padding: 0 5px;}
+.all-sort-list .item a:hover{font-weight:bold;color:#E4393C;}
+
+.all-sort-list .item-list{
+	display:none;
+	position:absolute;
+	width:990px;
+	min-height:450px;
+	_height:450px;
+	background:#FFF;
+	left:210px;
+	box-shadow:0px 0px 10px #DDDDDD;
+	border:1px solid #DDD;
+	top:3px;
+	z-index:10;
+}
+.item-list .subitem{
+	float: left;
+width: 720px;
+padding: 0px 10px 0px 10px;
+margin-top: 20px;
+position: relative;
+overflow: hidden;
+}
+.item-list .subitem dl{border-top:1px solid #EEE;padding:6px 0px;overflow:hidden;zoom:1;height:auto;}
+.item-list .subitem .fore1{border-top:none;}
+.item-list .subitem dt{
+	float: left;
+width: 100px;
+line-height: 22px;
+text-align: center;
+padding: 3px 10px 3px 3px;
+font-weight: 700;
+color: #E4393C;
+font-size: 11px;}
+
+.item-list .subitem dt a{color:#E4393C;text-decoration:underline;}
+.item-list .subitem dd{
+	float: left;
+width: 600px;
+padding: 3px 0px 0px;
+overflow: hidden;
+font-size: 12px;
+border-bottom: 1px solid #ccc;
+	}
+.item-list .subitem dd em{float:left;height:14px;line-height:14px;padding:0px 8px;margin-top:5px;border-left:1px solid #CCC;}
+.item-list .subitem dd em a{color:#666;text-decoration:none;font-style: normal;}
+.item-list .subitem dd em a:hover{font-weight:normal;text-decoration:underline;}
+.item-list .cat-right{
+float: right;
+width: 260px;
+margin-top: 10px;
+padding: 3px 3px 3px 3px;
+}
+.item-list .cat-right .right-ad-top{width: 260px;
+height: 160px;}
+.item-list .cat-right .right-ad-top a{float: left;
+width: 120px;
+height: 50px;
+margin: 0 5px 5px 0;
+border: 1px solid #efe6e6;
+}
+.item-list .cat-right .right-ad-top a img{width:100%;height:100%}
+.item-list .cat-right .right-ad-down{width: 260px;
+height: 245px;
+margin-top: 15px;}
+.item-list .cat-right .right-ad-down a{float: left;
+width: 245px;
+height: 120px;
+overflow: hidden;
+padding: 5px 5px;
+border: 1px solid #efe6e6;
+margin-bottom: 5px;
+}
+.item-list .cat-right .right-ad-top a:hover, .item-list .cat-right .right-ad-down a:hover{
+border: 2px solid #e31939;
+}
+.item-list .cat-right .right-ad-down a img{width:100%;height:100%}
+
+ul, ol {
+    list-style: none;
+}

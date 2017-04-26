@@ -1,0 +1,364 @@
+@charset "utf-8";
+body{font-family: "微软雅黑";font-size: 12px;}
+
+.index_banner {
+    height: 488px;
+    margin: 0 auto;
+    background-color: #fff;
+}
+
+.main_content{
+	height: 450px;position: relative;width: 100%;
+	overflow: hidden;
+}
+
+.shoppings{padding: 0 100px;}
+.shopping_item{padding-bottom: 20px;}
+.shopping_title{width: 165; height: 20px; display: block; margin:15px 0 8px 0; font-size: 16px;}
+.shopping_details .col-md-1{width: 19%;margin: 1px;}
+
+/*#category-item{z-index: 1000;background: red;}*/
+.second_level{font-size: 12px;font-weight: bold;text-align: left; line-height: 24px; padding-left:5px;}
+.item-sub{color: #000;z-index: 1000;position: absolute;left: 210px;background: #fff;
+width: 700px;border: 1px solid #red;border-radius: 2px;text-align: left;padding-left: 5px;line-height: 20px;min-height: 300px;}
+.third_level{padding-left: 20px;}
+.third_level>a{text-decoration:none;min-width:30px;color:#000;display: inline;opacity:1px;font-size: 10px;margin-right: 12px; padding:3px;font-weight: normal;}
+.third_level>a:hover{color: #000;}
+
+.index_banner .box-all {
+    height: 450px;
+	margin-left: 390px;
+}
+
+.box-all {
+    border-width: 1px;
+	z-index: 1;
+	right: 0;
+	width: 210px;
+	background: #fff;
+	position: absolute;
+	top: 195px;
+	height: 450px;
+	overflow: hidden;
+	left: 50%;
+}
+.box-all .title {
+    position: relative;
+    height: 40px;
+    padding-left: 14px;
+    border-bottom: 1px solid #eee;
+    background: #fff;
+    font: 14px/40px 'microsoft yahei';
+    overflow: hidden;
+}
+
+
+.box-all .title em {
+    display: inline-block;
+    vertical-align: middle;
+    font-style: normal;
+}
+
+ .box-all .title .more {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    font: normal 12px/40px 宋体;
+    color: #666;
+}
+
+ .box-all .userLogin {
+    height: 150px;
+    padding: 20px 20px 30px 20px;
+    border-bottom: 1px solid #e4e4e4;
+}
+.userLogin .isNone {
+    display: none;
+}
+.box-all .h62 {
+    height: 62px;
+}
+.userLogin .userLogo {
+    float: left;
+    width: 62px;
+    height: 62px;
+    position: relative;
+}
+.userLogin .userLogo img {
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    width: 60px;
+    height: 60px;
+}
+.userLogin .isLoginMessage {
+    display: block;
+    padding-top: 23px;
+    padding-left: 8px;
+    float: left;
+    width: 90px;
+}
+.userLogin .isLoginMessage span {
+    font-size: 14px;
+    color: #333;
+}
+.userLogin .isLoginMessage span, .userLogin .isLoginMessage em {
+    line-height: 20px;
+    display: block;
+}
+.userLogin .userBtn , .life .userBtn{
+    margin-top: 20px;
+}
+.userLogin .userBtn a , .life .userBtn a{
+    font-size: 12px;
+    line-height: 30px;
+    display: inline-block;
+    height: 30px;
+    text-align: center;
+    color: #fff;
+    background: #e31939;
+    border-radius: 3px;
+    -o-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+}
+.userLogin .userBtn a.w1 ,.life .userBtn a.w1{
+    width: 100%;
+}
+ .box-all .h62 {
+    height: 62px;
+}
+.userLogin .userName {
+    font-size: 14px;
+    float: left;
+    padding-left: 10px;
+    color: #333;
+    padding-top: 10px;
+}
+.userLogin .userBtn a.w2 {
+    width: 43%;
+}
+
+.userLogin .userBtn a.ml {
+    margin-left: 16px;
+}
+.notice {
+    position: relative;
+    height: 155px;
+    border-bottom: 1px solid #eee;
+    overflow: hidden;
+}
+ .notice .bg {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 155px;
+    background: #fff;
+    opacity: .9;
+    filter: alpha(opacity=90);
+    overflow: hidden;
+}
+ .notice .list {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 145px;
+    padding-top: 10px;
+    overflow: hidden;
+    padding-left: 0px;
+}
+
+ .notice .list li {
+    height: 18px;
+    margin: 0 10px 9px 15px;
+    line-height: 18px;
+    overflow: hidden;
+}
+
+ .notice .list li.hot a {
+    color: #f60;
+}
+ .notice .list li a {
+    color: #666;
+}
+
+ .life {
+    position: relative;
+    overflow: hidden;
+    padding: 0px 20px 0px 20px;
+}
+#rightbar{
+width:35px;
+height:100%;
+top:0px;
+right:0px;
+position:fixed;
+z-index: 1000000;
+}
+
+.ad-show{
+    border-bottom: 1px solid #eee;
+    width: 1200px;
+    margin: 0 auto;
+    margin-top: 40px;
+    height:480px;
+    font-size: 12px;
+    margin-bottom: 40px;
+}
+.ad-show h3{
+    float: left;
+    margin: 0;
+    font-size: 25px;
+}
+
+.ad-main li{
+    list-style-type: none;
+    float: left;
+    margin-left: 65px;
+}
+.ad-hot li{
+    list-style-type: none;
+    float: right;
+    margin-left: 5px;
+
+}
+.ad-com{
+    clear: left;
+    float: left;
+    height: 440px;
+    width: 200px;
+    background-color: #c4e6e7;
+}
+
+.ad-tel{
+    height: 270px;
+    width: 200px;
+}
+
+.ad-tel img{
+    height: 100%;
+    width: 100%;
+}
+.ad-image{
+    clear: both;
+    border-top: 1px solid lightblue;
+    height: 440px;
+}
+.ad-pp a{
+float: left;
+background-color: #ffffff;
+border: 1px solid #eee;
+padding: 10px 4px;
+height: 58px;
+width: 100px;
+}
+
+.ad-pp a:hover{
+border: 2px solid #e31939;
+}
+
+.ad-pp a img{
+    height:100%;
+    width:100%
+}
+
+.ad-coms{
+    width: 1000px;
+    height: 440px;
+    float: left;
+}
+.ad-coms ul{
+    padding: 0;
+    margin: 0;
+}
+.ad-left{
+    float: left;
+	width: 380px;
+	height: 440px;
+}
+.ad-left img{
+	width: 100%;
+	height: 100%;
+}
+.ad-center{
+    width: 404px;
+    float: left;
+}
+
+.ad-right{
+    width: 216px;
+    float: right;
+}
+.ad-coms .ad-center ul li{
+    float: left;
+    width: 202px;
+	height: 220px;
+}
+.ad-coms .ad-right ul li{
+    width: 216px;
+	height: 147px;
+}
+
+.ad-coms .ad-right ul li img{
+    width: 100%;
+	height: 100%;
+}
+
+.ad-coms .ad-center ul li img{
+    width: 100%;
+	height: 100%;
+}
+.ad-center ul li, .ad-right ul li,.tab2 li{
+    border: 1px solid #eee;
+    border-top: 0;
+    border-bottom: 0;
+    list-style-type:none;
+}
+.tab2{
+    text-align: center;
+    height: 222px;
+    border-bottom: 1px solid #eee;
+}
+.ad-coms .tab2 li{
+    height: 198px;
+    width: 200px;
+    float: left;
+    margin-top: 15px;
+}
+
+.ad-coms .tab2 img{
+    display: block;
+	width: 120px;
+	height: 120px;
+	margin: 0 auto;
+}
+
+.ad-coms .tab2 li .name a {
+    color: #666;
+}
+
+.ad-coms .tab2 li .name {
+    padding: 0 15px 0 12px;
+    width: 171px;
+    height: 35px;
+    text-align: left;
+    overflow: hidden;
+}
+.ad-coms .tab2 li .price {
+	padding: 0px 15px 0 15px;
+	font-size: 20px;
+	color: #e12228;
+	text-align: left;
+}
+
+.ad-coms .tab2 li  .price span {
+    font-family: tahoma;
+}
+.mouseen{
+    font-weight: bold;
+    border-bottom:solid #50abff 4px;
+    padding-bottom:12px;
+}
+.tab-1,.tab-2{
+    font-size: 14px;
+}

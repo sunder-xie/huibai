@@ -1,0 +1,30 @@
+#menu {
+	width: 190px;
+}
+
+#menu dl {
+	border-bottom: 1px solid #e5e8ef;
+	margin-bottom: 10px;
+}
+
+#menu dl dt {
+height: 40px;
+line-height: 40px;
+color: #333;
+font-weight: 700;
+font-size: 16px;
+}
+
+#menu dl dd {
+	color: #666;
+	line-height: 30px;
+    font-size: 14px;
+}
+
+#menu dl dd a {
+	color: #777;
+}
+
+#menu dl dd a:hover {
+	color: #e4393c;
+}

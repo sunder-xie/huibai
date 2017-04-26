@@ -1,0 +1,227 @@
+.announce-main {
+    width: 100%;
+    margin: 30px 0;
+}
+
+.md-listDetail {
+	margin-bottom: 35px;
+	border: 1px solid #dedede;
+	background: #fff;
+	/* width: 850px;
+	*/
+}
+
+.cm-rightBox {
+	float: left;
+	width: 80%;
+	margin-left: 30px; 
+	/* margin: 0 0 120px 10px;
+	 */
+}
+
+.md-listDetail>h2 {
+	padding: 10px 0;
+	font-size: 26px;
+	color: #000;
+}
+
+.md-listDetail>h2, .md-listDetail>h3 {
+	line-height: 30px;
+	text-align: center;
+	font-weight: 400;
+}
+
+.md-listDetail>h3 {
+	padding: 0 0 10px;
+	margin-bottom: 20px;
+	font-size: 12px;
+	color: #999;
+	border-bottom: #dedede 1px dotted;
+}
+
+.md-listDetail p {
+	color: #666;
+	padding: 5px 10px 15px;
+	text-indent: 2em;
+	line-height: 24px;
+	font-size: 14px;
+}
+
+.cm-sidebar {
+	float: left;
+	width: 210px;
+	overflow: hidden;
+}
+
+.cm-sideBox {
+	margin-bottom: 15px;
+	border: 1px solid #d6d6d6;
+	background: #fff;
+}
+
+.cm-sideBox .side-title {
+	position: relative;
+	/* padding: 0 10px 0 0; */
+	height: 45px;
+	border-bottom: #d8d8d8 2px solid;
+	line-height: 45px;
+	background: #f3f3f3;
+	font-size: 12px;
+}
+
+.cm-sideBox .side-title>h2 {
+	position: relative;
+	float: left;
+	padding: 0 10px;
+	font-size: 16px;
+	font-weight: 400;
+	color: #333;
+}
+
+.cm-sideBox .side-main {
+	margin: 20px 0;
+}
+
+.paginator-info {
+	position: relative;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.side-contact {
+	margin: 20px 10px;
+	font-size: 14px;
+	color: #666;
+}
+
+.side-contact>p>a {
+	color: #f60;
+}
+
+.side-announceList li {
+	padding-left: 10px;
+	margin-top: 10px;
+	font-size: 14px;
+	background-repeat: no-repeat;
+	background-position: left center;
+}
+.announce-title {
+    border-bottom: 2px solid #d5d5d5;
+    height: 45px;
+    margin-bottom: 30px;
+    background: #f3f3f3;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+
+.announce-tag {
+    position: absolute;
+    z-index: 10;
+}
+
+.announce-tag h4 {
+    height: 40px;
+    line-height: 40px;
+    font-weight: 400;
+    font-size: 16px;
+    background-repeat: no-repeat;
+    background-position: right center;
+    padding: 0 25px 0 15px;
+    display: inline-block;
+}
+
+.data-table {
+    margin-bottom: 80px;
+}
+.data-table .list-item {
+    margin-bottom: 15px;
+    zoom: 1;
+    border-bottom: 1px solid #eee;
+    height: 30px;
+	font-size: 16px;
+}
+
+.data-table .list-item a {
+    color: #333;
+    display: block;
+    float: left;
+    padding-left: 20px;
+    width: 550px;
+    overflow: hidden;
+}
+
+.data-table .list-item a{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.list-item-color:link{color: #FFFFFF ; text-decoration:none;} /*常规时候的样式*/
+.list-item-color:visited{color: #FFFFFF; text-decoration:none;} /*鼠标指上去的样式*/
+.list-item-color:hover {color: #FFFFFF; text-decoration:underline;} /*访问过后的样式*/
+
+.data-table .list-item span {
+    color: #888;
+    font-size: 12px;
+    display: block;
+    float: right;
+    margin-right: 50px;
+}
+
+
+.data-status {
+    font-size: 12px;
+    padding: 5px 20px;
+    color: #888;
+}
+
+.data-paginator {
+/* position: absolute;
+right: 50px;
+text-align: center;
+top: -3px; */
+	margin-bottom: 20px;
+float: right;
+margin-top: -40px;
+}
+
+.data-paginator a.jp-current, a.jp-current:hover {
+    font-weight: 700;
+}
+.data-paginator a.jp-current, .data-paginator a:hover, a.jp-current:hover {
+    background-color: #e77d00;
+    border: 1px solid #e77d00;
+    color: #fff;
+}
+.data-paginator a {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    font-size: 12px;
+    color: #888;
+    background-color: #f2f2f2;
+    border: 1px solid #e0e0e0;
+}
+
+
+.data-paginator a, .data-paginator span {
+    display: block;
+    margin: 0 5px;
+    float: left;
+}
+
+ul li{list-style :none}
+
+.side-announceList li > a {
+    display: block;
+    width: 100%;
+    color: #333;
+}
+
+.side-announceList li > a:hover{
+	color: #E04040;
+}
+.side-announceList ul{
+}

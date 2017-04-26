@@ -1,0 +1,663 @@
+
+.ordercon {
+    position: relative;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    margin: 20px auto;
+}
+
+
+
+.ordercon > div {
+    padding: 0 18px 44px;
+}
+
+.orderfloor-1 {
+    height: 80px;
+    font-size: 24px;
+    color: #000;
+    line-height: 80px;
+}
+.orderadress, .orderfloor-1 {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.orderadress {
+    padding-bottom: 15px;
+}
+
+.orderadress-title {
+    height: 60px;
+    line-height: 60px;
+}
+.orderadress-title span {
+    font-size: 16px;
+    color: #000;
+}
+.orderadress-detail {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+.selectadress-now-user {
+    float: left;
+}
+.selectadress-now dd, .selectadress-now-user dd {font-size: 12px;color: #666;line-height: 26px;}
+
+.selectadress-now span, .selectadress-now-user span {
+    margin-right: 30px;
+}
+
+.orderadress-detail a {
+    floselectadress-now-usert: right;
+    font-size: 12px;
+    color: #e77d00;
+}
+.moreadress {
+    font-size: 12px;
+    color: #666;
+    line-height: 50px;
+    margin-right: 5px;
+    color: rgb(231, 0, 0);
+}
+#refreshAddr {
+    padding-top: 12px;
+    verticle-align: middle;
+    cursor: pointer;
+}
+.orderadress-title {
+    height: 60px;
+    line-height: 60px;
+}
+.good-list-title {
+    overflow: hidden;
+    padding: 0 20px;
+    background: #eee;
+}
+.good-name-td {
+    width: 60%;
+}
+.td {
+    height: 40px;
+}
+.td, .td-h {
+    font-size: 12px;
+    line-height: 40px;
+    color: #333;
+    float: left;
+}
+.good-name-td img {
+    border: none;
+    background: #eee;
+}
+.good-name-td a {
+    color: #333;
+    padding: 0 5px;
+}
+.td a {
+    color: #333;
+}
+.good-prize-td {
+    width: 20%;
+}
+.good-num-td {
+    width: 15%;
+}
+.good-allprize-td {
+    width: 5%;
+}
+.good-list-con {
+    padding: 20px;
+}
+.good-list-con, .good-pic {
+    border: 1px solid #eee;
+    overflow: hidden;
+}
+.good-name-td {
+    width: 60%;
+}
+.td-h {
+    height: 80px;
+}
+.td, .td-h {
+    font-size: 12px;
+    line-height: 40px;
+    color: #333;
+    float: left;
+}
+.good-pic {
+    float: left;
+    width: 80px;
+    height: 80px;
+    margin-right: 15px;
+    background: #fff;
+}
+.good-list-con, .good-pic {
+    border: 1px solid #eee;
+    overflow: hidden;
+}
+.good-pic {
+    line-height: 0;
+}
+.good-name-td a {
+    color: #333;
+    padding: 0 5px;
+}
+.good-pic a {
+    padding: 0 0;
+}
+.good-pic a img {
+    border-radius: 0;
+}
+.good-pic img {
+    display: block;
+    width: 80px;
+    height: 80px;
+}
+.good-name-td img {
+    border: none;
+    background: #eee;
+}
+.good-info {
+    float: left;
+    width: 570px;
+    line-height: 16px;
+}
+.good-name-td a {
+    color: #333;
+    padding: 0 5px;
+}
+.good-title {
+    clear: both;
+    margin-bottom: 2px;
+    color: #888;
+    word-wrap: break-word;
+}
+.good-title, .good-title span {
+    text-overflow: ellipsis;
+    display: block;
+}
+.good-title span {
+    width: 570px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.good-title, .good-title span {
+    text-overflow: ellipsis;
+    display: block;
+}
+.goodprize {
+    color: #666;
+}
+.goodallprize, .goodprize {
+    font-size: 12px;
+}
+.good-prize-td {
+    width: 20%;
+}
+address, caption, cite, code, dfn, em, strong, th, var, b {
+    font-family: 'Microsoft YaHei UI','Microsoft YaHei', sans-serif;
+    font-weight: normal;
+    font-style: normal;
+}
+
+.goodallprize {
+    color: #ff6600;
+}
+.goodallprize, .goodprize {
+    font-size: 12px;
+}
+.good-allprize-td {
+    width: 5%;
+}
+.goodallprize span {
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+.goodallprize span.yhj {
+    float: left;
+    width: 56px;
+    height: 20px;
+    display: none;
+    line-height: 20px;
+    background: url(../images/bom.png) no-repeat;
+    background-position: 6px 2px;
+    cursor: pointer;
+}
+.goodallprize span {
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+.yhj {
+    display: none;
+}
+.goodallprize span.yhj em {
+    color: #fff;
+}
+.float-juan {
+    display: none;
+    width: 175px;
+    position: absolute;
+    border: 1px solid #dedede;
+    background: #fff;
+    color: #888;
+    margin: 22px 0 0 -110px;
+}
+.float-juan p {
+    display: block;
+    line-height: 20px;
+    padding: 0 5px;
+}
+.busess-mes {
+    border: 1px solid #eee;
+    height: 60px;
+    border-top: none;
+}
+
+.buessLy, .exp-prize, .exp-way {line-height: 60px;}
+
+.buessLy, .exp-way {
+    float: left;
+    font-size: 12px;
+    color: #666;
+}
+.buessLy {
+    width: auto;
+    padding: 0 230px 0 10px;
+}
+.buessLy textarea {
+    color: #999;
+    width: 360px;
+    height: 30px;
+    padding: 5px;
+    margin-left: 6px;
+    border: 1px solid #eee;
+    line-height: 20px;
+    vertical-align: middle;
+}
+
+textarea {
+    overflow: auto;
+}
+.exp-way {width: 250px;float: right;}
+
+.exp-way select {
+    width: 140px;
+    height: 26px;
+    border: 1px solid #ccc;
+    margin-left: 6px;
+}
+
+.paydetail {
+    text-align: right;
+    padding-top: 6px;
+}
+.paydetail dt, .paydetail dd, .pitch, .select i, .option {
+    *display: inline;
+}
+.paydetail dt, .paydetail dd, .pitch, .select i, .option {
+    display: inline-block;
+}
+.paydetail dl.juan {
+    background: #f6f6f6;
+    height: 60px;
+    line-height: 60px;
+}
+.paydetail dl {
+    margin: 5px 0;
+    padding-right: 12px;
+}
+
+.qlog, .totalNum, .totalNum li {
+    font-size: 13px;
+    color: #888;
+    display: inline-block;
+}
+
+.qlog, .totalNum, .totalNum li {
+    *display: inline;
+}
+.qlog {
+    padding-right: 20px;
+}
+
+.btn-order, .paydetail-prize dd, .paydetail-prize dt, label {
+    display: inline-block;
+}
+.totalNum li {
+    padding-left: 10px;
+}
+
+.totalNum li em {
+    color: #ff6600;
+    padding: 0 5px;
+}
+textarea {
+    resize: none;
+}
+
+.paydetail-juan {
+    display: none;
+}
+.paydetail-prize dd:nth-child(2) {
+    font-size: 20px;
+    color: #fc472e;
+}
+.paydetail-prize dd:nth-child(3) {
+    font-size: 12px;
+    color: #666;
+}
+
+#buycar {
+    display: none;
+}
+.btn-order {
+    background: #ff4400;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+    line-height: 35px;
+    margin-top: 20px;
+    padding: 0 38px;
+}
+
+dd {
+	line-height: unset;
+}
+
+.loading {
+    position: fixed;
+    z-index: 9991;
+    background: none;
+    display: none;
+}
+
+.float {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    z-index: 9990;
+    background: #000;
+    opacity: 0.2;
+    -webkit-opacity: 0.2;
+    -moz-opacity: 0.2;
+    -khtml-opacity: 0.2;
+    filter: alpha(opacity=20);
+    display: none;
+}
+
+
+.exChange {
+    color: #666;
+    font-size: 14px;
+    font-family: "微软雅黑","Arial","宋体";
+    line-height: 1.5;
+}
+.mt20 {
+    margin-top: 20px;
+    padding: 0 20px;
+}
+
+ul, ol {
+    list-style: none;
+}
+.autoList {
+    color: #888;
+}
+
+.cm-mercOrder .auto_listTitle {
+    background: #f6f7f8;
+}
+.auto_listTitle {
+    background: #efefef;
+    color: #333;
+    margin-bottom: 17px;
+    font-size: 12px;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+.auto_listTitle thead tr {
+    background: #f6f6f6;
+}
+.order_herad {
+    border: #fff 1px solid;
+}
+.cm-mercOrder .auto_listTitle th:first-child {
+    padding-left: 20px;
+}
+.cm-mercOrder .auto_listTitle th {
+    padding: 10px 0;
+    color: #333;
+}
+.auto_listTitle th {
+    padding: 15px 20px;
+}
+.tc {
+    text-align: center;
+}
+
+.fr {
+    float: right;
+}
+
+.cm-mercOrder .cTablea a.cm-orderLink {
+    color: #e77d00;
+}
+
+.cm-mercOrder .cTablea .btnMinR {
+    line-height: 28px;
+    border-radius: 3px;
+}
+
+.db {
+    display: block;
+}
+.cb {
+    color: #0d8bc5;
+}
+
+.mb10 {
+    margin-bottom: 10px;
+}
+
+.btnMinR {
+    text-align: center;
+    padding: 0 5px;
+    background: #d03a24;
+    color: #fff;
+    display: inline-block;
+    line-height: 30px;
+}
+
+.cm-btnPay {
+    width: 60px;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+
+.img {
+    border: 1px solid #eee;
+}
+img {
+    border: none;
+}
+
+.autoList .cTablea .info {
+    overflow: hidden;
+    width: 230px;
+    margin-left: 20px;
+    float: left;
+}
+.cl_both {
+    clear: both;
+}
+.order_oper {
+    padding: 8px 8px;
+}
+.bus_message {
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    overflow: hidden;
+}
+.order_oper a {
+    display: inline-block;
+    margin: 0px 0px 0px 6px;
+}
+.bus_name {
+    display: inline-block;
+    margin: 0px 20px 0px -8px;
+    color: #F30;
+}
+em, i {
+    font-style: normal;
+}
+.autoList .cTablea li {
+    border: 1px solid #eee;
+    margin-bottom: -1px;
+}
+.cTablea li {
+    margin-top: 10px;
+}
+li {
+    list-style: none;
+}
+.auto_listTop {
+    background: #f6f6f6;
+    border: #fff 1px solid;
+    padding: 10px 20px;
+    font-size: 12px;
+    color: #888;
+}
+.auto_listTop {
+    border: none;
+    padding: 0px !important;
+}
+.clearfix {
+    zoom: 1;
+}
+.autoList .cTablea li .c333 {
+    color: #333;
+}
+.auto_listTop span {
+    padding: 8px 16px;
+}
+
+.fl {
+    float: left;
+}
+
+.cm-mercOrder table td, .cm-bookingDetail table td {
+    padding-left: 20px !important;
+}
+.autoList table td {
+    padding: 20px 10px;
+    font-size: 12px;
+    vertical-align: top;
+}
+.order_list_td td {
+    border-bottom: 1px solid #eee;
+}
+
+html, body, div, span, applet, object, iframe, table, caption, tbody, tfoot, thead, tr, th, td, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, dl, dt, dd, ol, ul, li, fieldset, form, label, legend {
+    vertical-align: baselinebaseline;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: 100%;
+    outline: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+.u2_box {
+	margin-top: 20px;
+    padding: 40px 50px;
+    background: #fff;
+    margin-bottom: 10px;
+    border: 1px solid #dbdada;
+}
+
+.u2_box > h2.title {
+    padding-bottom: 35px;
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 18px;
+    border-bottom: 1px dashed #e4dcd1;
+}
+.clock {
+    display: inline-block;
+    background: url('../../images/clock.png');
+    width: 17px;
+    height: 17px;
+    position: relative;
+    top: 2px;
+    margin-right: 2px;
+}
+.timecounter {
+  color: #666;
+}
+.timecounter .d em,
+.timecounter .h em,
+.timecounter .m em,
+.timecounter .s em {
+  font-style: normal;
+  color: #ca354b;
+  margin: 0 2px;
+}
+em, i {
+    font-style: normal;
+}
+
+.amountInfo p {
+    font-size: 12px;
+    color: #666;
+    text-align: right;
+}
+
+.amountInfo p > b {
+    color: #333;
+    font-size: 14px;
+}
+.amountInfo p > em, .amountInfo .baoquan > em {
+    margin-right: 5px;
+    color: #cd332f;
+    font-size: 20px;
+    font-family: arial;
+}
+.amountInfo .baoquan {
+    padding-right: 12px;
+}
+
+.cm_orderDetail li:first-child {
+    border-top: none;
+}
+
+.cm_orderDetail li {
+    border-top: 1px dashed #e0e0e0;
+    padding: 25px 0;
+}
+
+.change_add p, .o-title {
+    height: 31px;
+    line-height: 31px;
+}
+.infor span {
+    margin-right: 10px;
+}
+.infor span, .infor a {
+    display: block;
+    float: left;
+}
+.cm_orderDetail li > h2.order_title {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #333;
+}

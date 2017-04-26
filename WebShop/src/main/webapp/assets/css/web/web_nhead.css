@@ -1,0 +1,98 @@
+.site_nhead {
+	min-width:1200px;
+	height:120px;
+	border-bottom:#fc472e 3px solid;
+	background-color:#fff;
+	overflow:hidden
+}
+.site_nhead .site_nhead_wrap {
+	width:1200px;
+	height:100px;
+	margin:0 auto
+}
+.site_nhead .site_nhead_sign {
+	float:left;
+	overflow:hidden;
+	width:220px;
+	height:90px;
+	margin-top:5px
+}
+.site_nhead .site_nhead_sign_img,.site_nhead .site_nhead_sign_link {
+	float:left;
+	width:190px;
+	height:90px
+}
+.site_nhead .site_nhead_nav_area {
+	float:left;
+	height:40px;
+	margin-top:30px
+}
+.site_nhead .site_nhead_nav_load,.site_nhead .site_nhead_nav_load>img {
+	width:18px;
+	height:18px;
+	float:left
+}
+.site_nhead .site_nhead_nav_load {
+	margin-top:11px
+}
+.site_nhead .site_nhead_nav_list {
+	display:none;
+	float:left;
+	height:40px
+}
+.site_nhead .site_nhead_nav_list_item {
+	line-height:20px;
+	position:relative;
+	float:left;
+	height:20px;
+	padding-top:10px;
+	padding-bottom:10px
+}
+.site_nhead .site_nhead_nav_list_link {
+	font-size:16px;
+	line-height:20px;
+	display:block;
+	height:20px;
+	margin-right:5px;
+	margin-left:5px;
+	padding-right:20px;
+	padding-left:20px;
+	color:#222
+}
+.site_nhead .site_nhead_nav_list_link:hover {
+	color:#ff4521
+}
+.site_nhead .site_nhead_nav_list_icon {
+	position:absolute;
+	top:0;
+	right:10px;
+	width:20px;
+	height:20px;
+	/* background-image:url(//scdn.qbcdn.com/web/site/site_nhead/site_nhead.png); */
+	background-repeat:no-repeat;
+	background-position:0 0
+}
+.site_nhead .site_nhead_jmp {
+	float:right;
+	width:170px;
+	height:100px
+}
+.site_nhead .site_nhead_jmp_link {
+	display:block;
+	position:relative;
+	width:170px;
+	height:100px;
+	text-align:left
+}
+.site_nhead .site_nhead_jmp_link_img {
+	float:left;
+	position:absolute;
+	margin:auto;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	width:170px;
+	text-align:center
+}
+
