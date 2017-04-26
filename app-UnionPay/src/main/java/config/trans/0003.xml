@@ -1,0 +1,4 @@
+<xml>
+	<return_code>${(returnCode)!}</return_code>
+	<return_msg>${(returnMsg)!}</return_msg>
+</xml>

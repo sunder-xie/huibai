@@ -1,0 +1,19 @@
+<xml>
+	<appid>${(appid)!}</appid>
+	<body>${(body)!}</body>
+	<device_info>${(device_info)!}</device_info>
+	<attach>${(attach)!}</attach>
+	<fee_type>${(fee_type)!}</fee_type>
+	<mch_id>${(mch_id)!}</mch_id>
+	<nonce_str>${(nonce_str)!}</nonce_str>
+	<notify_url>${(notify_url)!}</notify_url>
+	<out_trade_no>${(out_trade_no)!}</out_trade_no>
+	<product_id>${(product_id)!}</product_id>
+	<spbill_create_ip>${(spbill_create_ip)!}</spbill_create_ip>
+	<time_expire>${(time_expire)!}</time_expire>
+	<time_start>${(time_start)!}</time_start>
+	<total_fee>${(total_fee?string('#'))!}</total_fee>
+	<trade_type>${(trade_type)!}</trade_type>
+	<openid>${(openid)!}</openid>
+	<sign>${(sign)!}</sign>
+</xml>

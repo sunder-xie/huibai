@@ -1,0 +1,257 @@
+/*新版*/
+
+.bussiness-crumbs {
+height: 40px;
+line-height: 40px;
+font-size: 14px;
+color: #888;
+float: right;
+min-width: 990px;
+overflow: hidden;
+}
+
+.bussiness-crumbs > a {
+    margin: 0 5px;
+    color: #e77d00;
+}
+.bussiness-crumbs > em {
+    margin: 0 5px;
+    color: #333;
+}
+
+.orange {
+    color: #fc8a2e;
+}
+
+
+
+.panel-body .text {
+    border: 1px solid #dedede;
+    color: #b4b4b4;
+    height: 20px;
+    line-height: 20px;
+    padding: 3px 5px;
+}
+
+.panel-body tbody th {
+    color: #666;
+    padding: 12px 20px;
+    text-align: left;
+    vertical-align: middle;
+}
+.panel-body tbody td {
+    height: 20px;
+    line-height: 20px;
+}
+
+.panel-body tbody th span {
+    left: 6px;
+    color: #ff5555;
+    margin-left: -50px;
+    top: 14px;
+}
+
+.panel-options .infoEdit {
+    background-position: 3px -110px;
+    padding: 12px 0 0 20px;
+    text-indent: -100000px;
+}
+.fr {
+    float: right;
+}
+
+.panel .panel-heading > .panel-options a {
+    background: #fc472e none repeat scroll 0 0 !important;
+    border-radius: 2px;
+    color: #fff !important;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 !important;
+    text-align: center !important;
+    text-indent: 0 !important;
+    width: 100px;
+}
+#saveBaseInfo, #cancleBaseInfo {
+    color: #888;
+}
+
+.panel-options .btn_cal {
+    background: #e1e5e6 none repeat scroll 0 0 !important;
+    color: #888 !important;
+}
+.panel-options .ml10 {
+    margin-left: 10px;
+}
+.panel-options .infoEdit {
+    background: #fc472e none repeat scroll 0 0 !important;
+    border-radius: 2px;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 !important;
+    text-align: center !important;
+    text-indent: 0 !important;
+    width: 100px;
+}
+
+.even {
+    background: #fbfbfb none repeat scroll 0 0;
+}
+
+.nocont-order {
+	margin: 60px 0 90px;
+}
+
+.nocont-history {
+    margin: 60px 0 90px;
+}
+
+.nocont-box {
+	color: #999;
+	text-align: center;
+}
+
+.nocont-box b.icon-order {
+	width: 70px;
+	height: 70px;
+	background-position: 0 0;
+}
+
+.nocont-box b {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	vertical-align: middle;
+	background: url(../../images/order-list/nocont-icons.png)
+		no-repeat;
+	overflow: hidden;
+	margin-right: 20px;
+}
+
+
+.cmMiddle {
+    padding-top: 20px;
+}
+
+#main {
+	float: left;
+	width: 990px;
+	overflow: hidden;
+	margin-bottom: 20px;
+    background: rgb(255, 255, 255) none repeat scroll 0% 0%;
+}
+
+#main .row{
+	margin: 0px;
+}
+/*后续删除*/
+
+
+html, body, div, span, applet, object, iframe, table, caption, tbody, tfoot, thead, tr, th, td, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, dl, dt, dd, ol, ul, li, fieldset, form, label, legend {
+    vertical-align: baselinebaseline;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: 100%;
+    outline: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+	 
+#container {
+	position: relative;
+	width: 100%;
+}
+
+#container .w { 
+	//background-color: #f5f5f5;
+	margin: 0 100px;
+}
+
+#content {
+	padding-left: 120px;
+	padding-top: 20px;
+	display: inline-block;
+}
+
+#sub {
+	float: left;
+	width: 120px;
+	position: relative;
+	left: -120px;
+}
+
+.backpanel-inner {
+	position: fixed;
+	z-index: 1000;
+	left: 50%;
+	bottom: 0;
+	margin-left: 600px;
+	_position: absolute;
+	_right: auto;
+	_bottom: auto;
+	_top: expression(document.documentElement.scrollTop +
+		documentElement.clientHeight-this.clientHeight);
+}
+
+.backpanel-inner .bp-item {
+	width: 30px;
+	height: 95px;
+}
+
+.backpanel-inner .bp-item a {
+	display: block;
+position: relative;
+width: 25px;
+height: 95px;
+padding: 28px 4px 0;
+margin: 5px 0;
+text-align: center;
+line-height: 14px;
+text-decoration: none;
+background: url(../../images/backpanel/backpanel-icon.png) -105px 0 no-repeat;
+border-radius: 6px;
+}
+
+.backpanel-inner .bp-item a b {
+	position: absolute;
+	top: 9px;
+	/* left: 4px; */
+	width: 17px;
+	height: 16px;
+	overflow: hidden;
+	background-image: url(../../images/backpanel/backpanel-icon.png);
+}
+
+.backpanel-inner .bp-item .research:hover b {
+	background-position: -16px -96px;
+}
+
+.backpanel-inner .bp-item .research b {
+	background-position: -16px -115px;
+}
+
+.backpanel-inner .bp-item .gotop b {
+    background-position: -40px -115px;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+.error-tip, .gr-search-box, .gr-search-btn {
+    height: 30px;
+    line-height: 30px;
+}
+.error-tip {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    display: none;
+    border: 1px solid #fa2727;
+    padding: 0 20px;
+    margin-top: -15px;
+    background: #ffafaf;
+    color: #fa2727;
+    font-size: 12px;
+}

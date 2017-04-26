@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+                           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+                           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+	
+	<!-- 用户自定义的实现类 -->
+	<!-- 代付交易未知状态交易定时任务 -->
+	<bean id="unionErrorJob"
+		class="com.hlb.service.impl.UnionQueryTaskImpl">
+	</bean>
+	<!-- 定义调用对象和调用对象的方法 1.调用的类 2.调用类中的方法 -->
+	<bean id="unionErrorJobDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="unionErrorJob" />
+		</property>
+		<property name="targetMethod">
+			<value>execute</value>
+		</property>
+	</bean>
+	
+	<bean id="updateOrderInfoJobDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="orderServiceImpl" />
+		</property>
+		<property name="targetMethod">
+			<value>updateOrderInfoBySetTime</value>
+		</property>
+	</bean>
+	
+	
+	<!-- 定义触发时间 1.cron表达式 此处定义为一直触发执行任务 秒 分 小时 天 月 周 年 -->
+	<bean id="unionErrorJobTrigger" 
+		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail">
+			<ref bean="unionErrorJobDetail" />
+		</property>
+		<property name="cronExpression">
+			<value>0 */15 * * * ?</value>
+		</property>
+	</bean>
+	
+	<!-- 定义触发时间 1.cron表达式 此处定义为一直触发执行任务 秒 分 小时 天 月 周 年 -->
+	<bean id="updateOrderInfoJobTrigger" 
+		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail">
+			<ref bean="updateOrderInfoJobDetail" />
+		</property>
+		<property name="cronExpression">
+			<value>0 */15 * * * ?</value>
+		</property>
+	</bean>
+	
+	
+	<!-- 总线管理类 如果将lazy-init='false'那么容器启动就会执行调度程序  -->
+	<bean id="startQuartz" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="unionErrorJobTrigger" />
+				<ref bean="updateOrderInfoJobTrigger" />
+			</list>
+		</property>
+		<property name="waitForJobsToCompleteOnShutdown" value="true"/>
+	</bean>
+	
+	
+</beans>

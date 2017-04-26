@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<!-- Import Application Context File -->
+	<import resource="applicationContext-hibernate.xml"/>
+	<!-- <import resource="applicationContext-quartz.xml"/> -->
+	<import resource="applicationContext-mvc.xml"/>
+	<!-- 安全认证
+	<import resource="applicationContext-security.xml"/> -->
+	<!-- 定时任务 -->
+	<!-- <import resource="applicationContext-quartz.xml" />-->
+	
+</beans>
