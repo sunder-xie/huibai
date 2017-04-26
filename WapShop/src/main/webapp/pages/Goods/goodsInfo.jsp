@@ -50,30 +50,9 @@ margin: -1px;
 		<div class="nav_inner">
 			<a class="nav-left back-icon" href="javascript:history.back();">返回</a>
 			<div class="tit">商品详细</div>
-			<div class="sousuo" id="sousou"><img src="images/sou.png"></div>
 		</div>
 	</div>
 </header>
-<div style="overflow: hidden; position: fixed; width: 100%; z-index: 10000; top: 0px;">
-	<div class="order_top_count" style="display: none;">
-		<div class="order_top">
-			<div class="order_a_l">
-				<div id="nav-left_ll">
-					<img src="images/order_top_l.png">
-				</div>
-			</div>
-			<div class="order_sou">
-				<form id="searchform" name="searchform" action="/m_search/list"
-					method="get">
-					<input name="keyword" id="keyword" placeholder="搜索商品" type="text"
-						value="1"> <span class="pro_sou" style="cursor: pointer;"
-						onclick="searchproduct();"><img src="images/Search.png"></span>
-					<div></div>
-				</form>
-			</div>
-		</div>
-	</div>
-</div>
 <input id="prodId" value="" type="hidden" />
 <input id="currSkuId" value="" type="hidden"/>
 <div class="container">

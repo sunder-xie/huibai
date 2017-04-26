@@ -108,6 +108,14 @@ var setAllDomain = function(){
 	basepath='';	
 	currProdId=GetQueryString("goods_id");
 	currShopId=GetQueryString("shop_id");
+	if(isWeiXinBrowse())
+	{
+		InitHeader();
+	}
+}
+
+var InitHeader =function(){
+	$('.header').hide();
 }
 
 var getGoodsInfo = function(){
