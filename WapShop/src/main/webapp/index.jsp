@@ -369,7 +369,21 @@
     }
     
 	</script>   
-	
+<footer class="footer">
+	<ul class="footer-platforms">
+		<li class="w-3"><a
+			href="pages/download/download.jsp">客户端</a></li>
+		<li class="w-3"><a
+			href="http://m.hbaicai.com">触屏版</a></li>
+		<li class="w-3" style="border-right: none;"><a
+			href="http://www.hbaicai.com">电脑版</a></li>
+	</ul>
+	<div class="foot_index">
+		<div class="foot_index_tit">Copyright © 2016-2017 汇百科技 hbaicai.com 版权所有</div>
+		<!-- <div class="foot_index_rx">汇百科技</div> -->
+	</div>
+</footer>	
+
 <jsp:include page="pages/common/index_footerbar.jsp" />
 
 <script type="text/javascript">
@@ -379,16 +393,6 @@
 		$(this).attr("src",img_src);
 		});
 	});
-	
-	/* function searchproduct(){
-		   var keyword = document.getElementById("keyword").value;
-		   if(isNull(keyword)){
-		     floatNotify.simple("请输入搜索关键字！");
-		     return false;
-		   }
-		   //document.getElementById("searchform").submit();
-		   window.location = "pages/search/searchGoods.jsp?keyword="+keyword;
-		} */
 </script>
 </body></html>
 

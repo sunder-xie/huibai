@@ -95,7 +95,7 @@ max-height: 20px;
   color: #888888;
   border: 1px solid #d3d3d3;
   margin: 0 5px;}
-.container{margin-bottom: 10px; background-color:#fff;}
+/* .container{margin-bottom: 10px; background-color:#fff;} */
 
 .hd_2{position:fixed;height:40px;line-height: 40px;top:0px;z-index:1000;background:#fff;border-bottom: 1px solid #e5e5e5;width:100%;max-width: 768px;}
 .hd_2 ul{margin:0px;border: 0 none;  outline: 0 none;padding:0px;}

@@ -161,7 +161,7 @@ margin: -1px;
         </div>
     </div>
 </div>
-
+<div class="clear"></div>
 <div class="fixed-foot">
 	<div class="fixed_inner">
 		<a class="btn-fav" href="javascript:void(0);" onclick="addInterest(this);">
@@ -178,8 +178,5 @@ margin: -1px;
 		</div>
 	</div>
 </div>
-
-<div class="clear"></div>
-
 </body>
 </html>

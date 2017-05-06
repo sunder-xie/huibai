@@ -81,31 +81,11 @@
 	<div class="row">
 		<aside>
 			<div class="menu-left scrollbar-none mb50" id="sidebar">
-				<ul >
-					<!-- <li  class="active">鞋/箱包</li>
-					<li >珠宝首饰/手表眼镜</li>
-					<li >美妆护肤</li>
-					<li >家用电器</li>
-					<li >居家生活</li>
-					<li >家具建材</li>
-					<li >食品/医药保健</li>
-					<li >图书音像</li>
-					<li >手机/数码</li>
-					<li >女装</li>
-					<li >男装</li>
-					<li >母婴用品</li>
-					<li >全新整车/车品</li> -->
+				<ul>
 				</ul>
 			</div>
 		</aside>
 		<div id="right-list">
-			<!-- <section class="menu-right padding-all j-content mb50">
-					<h5>鞋/箱包</h5>
-					<ul>
-						<li class="w-3"><a href="/index.php?m=default&c=category&a=index&id=61&u=0"></a>
-						<img src="images/6345_thumb_G_1441858623854.jpg" /><span>正装皮鞋88</span></li>
-					</ul>
-			</section> -->
 		</div>
 	</div>
 </div>

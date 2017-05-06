@@ -32,3 +32,33 @@
     66%{background-image:url(../images/loading3.png);}
     100%{background-image:url(../images/loading1.png);}
 }
+
+.app-download-img{text-align: center;}
+.download{
+	text-align: center;
+}
+.download li{
+	padding: 20px 0;
+}
+.download span{
+	border: 1px solid;
+    border-radius: 16px;
+    padding: 10px 20px;
+    font-size: 20px;
+}
+
+.download span em{
+	margin-left:30px;
+}
+
+.download .iphone{
+	background-image: url(../images/hbai-apple-whiteico.dfc2ab39.png);
+	background-repeat: no-repeat;
+	background-position: 10px 8px;
+}
+
+.download .android{
+	background-image: url(../images/hbai-android-whiteico.c0418085.png);
+	background-repeat: no-repeat;
+	background-position: 10px 8px;
+}
