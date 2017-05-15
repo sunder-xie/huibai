@@ -156,9 +156,11 @@
     <module>../app-common</module>
     <module>../app-dao</module>
     <module>../app-OAuth2</module>
+    <module>../app-SMS</module>
     <module>../app-service</module>
     <module>../app-controller</module>
     <module>../app-UnionPay</module>
     <module>../app-web</module>
+   
   </modules>
 </project>

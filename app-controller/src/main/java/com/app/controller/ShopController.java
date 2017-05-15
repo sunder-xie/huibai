@@ -20,6 +20,7 @@ import com.hlb.utils.string.StringUtils;
 import com.app.bean.TblShopInfo;
 import com.app.bean.TblUserInfo;
 import com.app.common.utils.LTConstant;
+import com.app.common.utils.ResCodeConstant;
 
 @Controller
 @RequestMapping("Shop")
@@ -63,6 +64,29 @@ public class ShopController {
 		String userId = params.get("userId");
 		String status = "0";
 		return shopServiceImpl.getShopInfoByUserId(userId,status);
+	}
+	
+	/**
+	 * 获取shop内容
+	 * */
+	@RequestMapping("GetShopInfoByLoginUser")
+	public @ResponseBody Message GetShopInfoByLoginUser(HttpSession session){
+		
+		Message msg = new Message();
+		Object obj=session.getAttribute(LTConstant.userInfo);
+		String UserId="";
+		if(obj!=null)
+		{
+			TblUserInfo userinfo =(TblUserInfo)obj;
+			UserId=userinfo.getId();
+		}
+		else{
+			msg.setRspCode(ResCodeConstant.MSG_NOT_LOGIN);
+			msg.setRspMsg(ResCodeConstant.MSG_NOT_LOGIN_DESC);
+			return msg;
+		}
+		String status = "0";
+		return shopServiceImpl.getShopInfoByUserId(UserId,status);
 	}
 	
 	/**

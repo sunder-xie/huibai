@@ -33,5 +33,7 @@ public interface UserService {
 	public Message updateUserPwd(String username,String oldpwd,String newpwd,HttpSession session);
 
 	public Message GetOAuth2UserInfo(String userId, String Channle);
+
+	public Message GetUserInfo(TblUserInfo userInfo);
 	
 }

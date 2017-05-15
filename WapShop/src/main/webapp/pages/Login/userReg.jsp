@@ -12,11 +12,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <%@ include file="../common/base.jsp" %>
 <base href="<%=tBasePath%>"></base>
-<title>注册</title>
+<title>会员注册</title>
 <link rel="stylesheet" href="css/bootstrap.css?v=10.09">
 <link rel="stylesheet" href="css/style.css?v=10.09">
-<link rel="stylesheet" href="css/member.css?v=10.09">
-<link rel="stylesheet" href="css/order3.css?v=10.09">
 <link rel="stylesheet" href="css/app.css?v=10.09">
 
 <script charset="utf-8" src="js/global.js?v=10.09"></script>
@@ -88,23 +86,28 @@ if( navigator.userAgent.match(/iPhone|iPad|iPod/i) ) {
 	    <div class="row mt20"></div>
 	    <div class="row">
 	        <div class="col-md-12">
-	
 	              <div class="form-group">
-	                <label for="name" class="col-xs-offset-1 col-xs-2 control-label p0">用户名：</label>
-	                <div class="col-sm-7 col-xs-9">
-	                  <input type="text" name="username" maxlength="20" class="form-control" id="username" placeholder="请输入您的姓名">
+	                <label for="name" class="col-xs-3 control-label p0">账号：</label>
+	                <div class="col-sm-7 col-xs-8">
+	                  <input type="text" name="username" maxlength="20" class="form-control" id="username" placeholder="请输入账号">
 	                </div>
 	              </div>
-	              <!-- <div class="form-group">
-	                <label for="phone" class="col-xs-offset-1 col-xs-2 control-label p0">手机：</label>
-	                <div class="col-sm-7 col-xs-9">
+	              <div class="form-group">
+	                <label for="phone" class="col-xs-3 control-label p0">手机：</label>
+	                <div class="col-sm-7 col-xs-8">
 	                  <input type="text" name="mobile" maxlength="11" class="form-control" id="mobile" placeholder="请输入您的手机号码">
 	                </div>
-	              </div> -->
+	              </div>
 	              <div class="form-group">
-	                <label for="phone" class="col-xs-offset-1 col-xs-2 control-label p0">密码：</label>
-	                <div class="col-sm-7 col-xs-9">
+	                <label for="phone" class="col-xs-3 control-label p0">密码：</label>
+	                <div class="col-sm-7 col-xs-8">
 	                  <input type="password" name="password" class="form-control" id="password" placeholder="请输入您的登录密码" autocomplete="off">
+	                </div>
+	              </div>
+	              <div class="form-group">
+	                <label for="phone" class="col-xs-3 control-label p0">重复密码：</label>
+	                <div class="col-sm-7 col-xs-8">
+	                  <input type="password" name="repassword" class="form-control" id="repassword" placeholder="请再次输入您的登录密码" autocomplete="off">
 	                </div>
 	              </div>
 	              <!-- <div class="form-group">
@@ -129,155 +132,36 @@ if( navigator.userAgent.match(/iPhone|iPad|iPod/i) ) {
 	                </div>
 	              </div> -->
 	              
-	             <!--  <div class="form-group">
-	                <label for="code" class="col-xs-offset-1 col-xs-2 control-label p0">验证码：</label>
+	             <div class="form-group">
+	                <label for="code" class="col-xs-3 control-label p0">验证码：</label>
 	                <div class="col-sm-4 col-xs-4 pr0">
 	                  <input type="text" name="mobile_code" class="form-control" id="mobile_code" placeholder="请输入手机验证码">
+	                  <input type="text" name="sms_id" class="hide" id="sms_id" value="">
 	                </div>
 	                <div class="col-sm-3 col-xs-5">
 	                  <input type="button" class="form-control btn btn-primary get_mobile_code" value="获取手机验证码" style="padding:0px;">
 	                </div>
-	              </div> -->
-	
+	              </div>
+				<div class="form-group">
+					<label class="checkbox col-xs-10 control-label p0">
+					<input id="readagreebtn"
+						name="readagreebtn" type="checkbox"/>同意<a class="red" href="pages/agreement/regAgreement.jsp">乐汇百材用户注册协议、用户隐私政策</a>
+					</label>
+				</div>
 	              <div class="form-group">
-	                <div class="col-xs-offset-3 col-xs-6 mt10">
-	                  <button type="button" onclick="formSubmit();" class="btn btn-success vip_reg btn-lg">立刻注册</button>
-	                </div>
+	               <div class="col-xs-11 mt10">
+	              	<button type="button" class="btn btn-info btn-block"
+						onclick="userReg();">立刻注册</button>
+						</div>
 	              </div>
 	        </div>
 	    </div>
 	</div>
-
 </div>
 <div>
-</div></form><script type="text/javascript">
-var contextPath = 'pages/User';
+</div></form>
+<script type="text/javascript">
 
-$(document).ready(function(){
-
-  //性别：单选
-  $("#gradenameboy").click(function(){
-        var parent = document.getElementById("gradenameboy");
-        $("#gradenameboy").removeClass("checked");
-        parent.className = parent.className + " checked";
-        $("#gradenamegirl").removeClass("checked");
-        $('#sex').val(1);
-  });
-  $("#gradenamegirl").click(function(){
-        var parent = document.getElementById("gradenamegirl");
-        $("#gradenamegirl").removeClass("checked");
-        parent.className = parent.className + " checked";
-        $("#gradenameboy").removeClass("checked");
-        $('#sex').val(0);
-  });
-  
-  //当光标离开 姓名时，验证姓名
-  $("#username").blur(function(){
-	  checkName();
-  });
-  
-  //当光标离开 手机时，验证手机
-  $("#mobile").blur(function(){
-	  checkPhone();
-  });
-  
-//当光标离开 密码时，验证密码
-  $("#password").blur(function(){
-	  checkPassword();
-  });
-  
-  //获取手机验证码
-  $('.get_mobile_code').click(function(){
-	  var randNum = $("#randNum").val();
-	
-		var _this = this;
-      if(checkPhone()){
-      	if(validateRandNum(contextPath)){
-    	  $.ajax({
-    			url: contextPath + "/sendSMSCode", 
-    			data:{"userName":$("#username").val(),"mobile":$("#mobile").val(),"randNum":randNum},
-    			type:'post', 
-    			dataType : 'json', 
-    			async : false,   
-    			error: function(jqXHR, textStatus, errorThrown) {
-    		 		alert(textStatus, errorThrown);
-    			},
-    			success:function(retData){		
-    				if(retData=="OK"){
-	    		    	mycountDown(_this,60);
-    				}else{
-						alert("图形验证码不正确");    					
-    				}
-    			}
-    	  });
-    	  
-      }
-	}
-	  
-
- });
- 
-});
-
-//切换图形验证码
- function changeRandImg(contextPath){
-        var obj = document.getElementById("randImage") ;
-        obj.src = contextPath + "/validCoder.random?d=" + new Date();
-     }
-     
-//验证图形验证码
-function validateRandNum (contextPath){
-	var checkResult = checkRandNum();
-	if(!checkResult){
-		 //验证失败，返回
-		return checkResult;
-	}
-	var randNum = document.getElementById("randNum").value;
-	var result = true;
-		var data = {
-            	"randNum": randNum
-            };
-	    jQuery.ajax({
-			url: contextPath + "/validateRandImg", 
-			type:'post', 
-			data:data,
-			async : false, //默认为true 异步   
-		    dataType : 'json', 
-			error: function(jqXHR, textStatus, errorThrown) {
-			},
-			success:function(retData){
-				 if(!retData){
-					 	result = retData;
-					 	alert("图形验证码错误");
-					 	document.getElementById("randNum").value="";
-					 	//document.getElementById('randNum').focus() ;
-					 	changeRandImg(contextPath);
-				 }
-			}
-			});	 
-	 
-	 return result;
-}
-
-function checkRandNum (){
-	var error;
-	var inputVal = document.getElementById('randNum');
-	//如果找不到对象则表示不用验证
-	if(inputVal == null){
-		return true;
-	}
-	
-	if(inputVal.value==null||inputVal.value==''){
-	 	alert("请输入图形验证码");
-	  //inputVal.focus() ;
-	  return false; //验证失败
-	 }
-	 if(inputVal.value.length!=4){
-		 alert("请输入4位图形验证码");
-		return false; //验证失败
-	 }
-	 return true;
-}
 </script>
 </body>
 </html>

@@ -429,11 +429,10 @@ public class OrderServiceImpl implements OrderService {
 				{
 					log.info("订单状态为：［{}]",tempkey);
 					condition_sql= "and t.ordSta = '" + tempkey + "' ";
-				}else
-				{
-					condition_sql= "and t.ordSta <> '" + LTConstant.ORDER_DEL + "' ";
 				}
 			}
+			
+			condition_sql += "and t.delFlag <> '" + LTConstant.ORDER_BUYER_DEL + "' ";
 			
 			condition_sql += " order by t.applyDt desc";
 			
@@ -532,10 +531,140 @@ public class OrderServiceImpl implements OrderService {
 		
 		return pages;
 	}
+	
+	@Override
+	public Pager getMerOrderList(Pager pages) {
+		
+		log.info("获取商家order所有信息");
+		
+		try {
+			
+			String tempkey= "";
+			String condition_sql="";
+			String countsql = "";
+			String sql  = " ";
+			String csql = " from TblOrderInfo t where 1=1 ";
+			
+			//读取查找条件
+			if(pages.getConditions().containsKey("ordSta"))
+			{
+				tempkey=pages.getConditions().get("ordSta");
+				if(!tempkey.equals("99"))
+				{
+					log.info("订单状态为：［{}]",tempkey);
+					condition_sql= "and t.ordSta = '" + tempkey + "' ";
+				}
+			}
+			
+			if(pages.getConditions().containsKey("shopId")){
+				tempkey=pages.getConditions().get("shopId");
+				log.info("关键字是shopid：［{}]",tempkey);
+				condition_sql += "and t.shopId = '"+ tempkey + "'";			
+			}
+			
+			condition_sql += "and t.delFlag <> '" + LTConstant.ORDER_SALER_DEL + "' ";
+			
+			condition_sql += " order by t.applyDt desc";
+			
+			countsql = "select count(*) " + csql +condition_sql;
+			sql += csql +condition_sql;
+			
+			/*开始记录数*/
+			int start = (pages.getStart() -1) * pages.getOffset();
+			List count = baseDaoImpl.queryByHQL(countsql, null);
+			Object objTotal=count.get(0);//记录总数
+			Integer  num = Integer.parseInt(objTotal.toString());
+			Integer pagecount = (num % pages.getOffset() == 0) ? num/pages.getOffset():num/pages.getOffset() + 1;
+			
+			List infos = baseDaoImpl.queryByHQL(sql, null,start ,pages.getOffset());
+			if(infos.size()<1)
+			{
+				log.info("未查询到记录");
+				pages.setRspCode("000002");
+				pages.setRspMsg("未找到相关记录!");
+			}
+			else
+			{
+				List<OrderListModel> models = new ArrayList<OrderListModel>();
+				for(Object object : infos){
+					OrderListModel model = new OrderListModel();
+					TblOrderInfo order = new TblOrderInfo();
+					order=(TblOrderInfo)object;
+					model.setOrderId(order.getOrderId());
+					model.setApplyDt(order.getApplyDt());
+					model.setPayDt(order.getPayDt());
+					model.setOutDt(order.getOutDt());
+					model.setConfirmDt(order.getConfirmDt());
+					model.setCloseDt(order.getCloseDt());
+					model.setAutoDt(order.getAutoDt());
+					model.setUserId(order.getUserId());
+					model.setUserNm(order.getUserNm());
+					model.setShopId(order.getShopId());
+					model.setShopNm(order.getShopNm());
+					model.setTotalNum(order.getTotalNum());
+					model.setGoodsAmt(order.getGoodsAmt());
+					model.setYfAmt(order.getYfAmt());
+					model.setTotalAmt(order.getTotalAmt());
+					model.setBuyerMsg(order.getBuyerMsg());
+					model.setSalerMsg(order.getSalerMsg());
+					model.setPayAmt(order.getPayAmt());
+					model.setAddrs(order.getAddrs());
+					model.setPerson(order.getPerson());
+					model.setMobile(order.getMobile());
+					model.setOrdSta(order.getOrdSta());
+					model.setPaySta(order.getPaySta());
+					model.setPaySeq(order.getPaySeq());
+					model.setPayChannle(order.getPayChannle());
+					model.setExpress(order.getExpress());
+					model.setExpressNo(order.getExpressNo());
+					
+					String sql2  = "select t.order_id,t.goods_id,t.goods_nm,c.url,t.type_id,t.type_nm,t.buynum,t.price,t.total_amt ";
+					String csql2 = "from tbl_order_goods_info t "
+							+ " left join tbl_resources_info c on c.keyid=t.goods_id and c.type='01' where t.order_id=? ";
+					sql2 += csql2;
+					
+					List childinfos = baseDaoImpl.queryBySQL(sql2, new String[]{order.getOrderId()});
+					if(childinfos.size()>0)
+					{
+						List<OrderGoodsModel> models2 = new ArrayList<OrderGoodsModel>();
+						for(Object object2 : childinfos){
+							Object[] strs = (Object[])object2;
+							OrderGoodsModel orderGoodsModel = new OrderGoodsModel();
+							orderGoodsModel.setOrderId(strs[0]+"");
+							orderGoodsModel.setGoodsId(strs[1]+"");
+							orderGoodsModel.setGoodsNm(strs[2]+"");
+							orderGoodsModel.setMainPicUrl(strs[3]+"");
+							orderGoodsModel.setTypeId(strs[4]+"");
+							orderGoodsModel.setTypeNm(strs[5]+"");
+							orderGoodsModel.setBuynum(strs[6]+"");
+							orderGoodsModel.setPrice(strs[7]+"");
+							orderGoodsModel.setTotalAmt(strs[8]+"");
+							models2.add(orderGoodsModel);
+						}
+						
+						model.setGoodsList(models2);
+					}
+					
+					models.add(model);
+				}
+				pages.setResult(models);
+				pages.setPageCount(pagecount);
+				pages.setTotal(num);
+				pages.setRspCode("000000");
+				pages.setRspMsg("成功!");
+			}
+			
+		} catch (DBException e) {
+			pages.setRspCode("000001");
+			pages.setRspMsg("数据库异常");
+		}
+		
+		return pages;
+	}
 
 	@Override
 	@Transactional
-	public Message saveOrderInfoByCar(BuyCarOrder model, String userId) {
+	public Message saveOrderInfoByCar(BuyCarOrder model, String userId,String userNm) {
 		Message msg = new Message();
 		try {
 			log.info("增加订单信息:CarIdList为［{}]", model.getCarIdList());
@@ -547,6 +676,7 @@ public class OrderServiceImpl implements OrderService {
 			orderInfo.setOrderId(orderId);
 			orderInfo.setSendChannle(model.getSendChannel());
 			orderInfo.setUserId(userId);
+			orderInfo.setUserNm(userNm);
 			orderInfo.setShopId(model.getShopId());
 			orderInfo.setShopNm(model.getShopNm());
 			orderInfo.setYfAmt(model.getYfAmt());
@@ -562,6 +692,7 @@ public class OrderServiceImpl implements OrderService {
 			orderInfo.setOrdSta(LTConstant.ORDER_WAIT_PAY);
 			orderInfo.setPaySta(LTConstant.PAY_ING);
 			orderInfo.setInstDt(orderDt);
+			orderInfo.setDelFlag("0");
 			int buyNum =0;
 			int googsAmt=0;
 			for (int i = 0 ; i <CarIdList.length ; i++ ) {
@@ -669,7 +800,7 @@ public class OrderServiceImpl implements OrderService {
 	@SuppressWarnings("static-access")
 	@Override
 	@Transactional
-	public Message saveNewOrder(BuyOrderReqModel model, String userId) {
+	public Message saveNewOrder(BuyOrderReqModel model, String userId,String userNm) {
 		
 		log.info("增加订单信息：");
 		Message msg = new Message();
@@ -682,6 +813,7 @@ public class OrderServiceImpl implements OrderService {
 			orderInfo.setOrderId(orderId);
 			orderInfo.setSendChannle(model.getSendChannel());
 			orderInfo.setUserId(userId);
+			orderInfo.setUserNm(userNm);
 			orderInfo.setShopId(model.getShopId());
 			orderInfo.setShopNm(model.getShopNm());
 			orderInfo.setYfAmt(model.getYfAmt());
@@ -698,7 +830,7 @@ public class OrderServiceImpl implements OrderService {
 			orderInfo.setPaySta(LTConstant.PAY_ING);
 			orderInfo.setInstDt(orderDt);
 			orderInfo.setTotalNum(model.getTotalNum()+"");
-			
+			orderInfo.setDelFlag("0");
 			String googsAmt = Integer.parseInt(model.getPrice())*model.getBuyNum()+"";
 			orderInfo.setGoodsAmt(googsAmt);
 			
@@ -732,7 +864,7 @@ public class OrderServiceImpl implements OrderService {
 
 	@Override
 	@Transactional
-	public Message delOrderInfo(String orderId) {
+	public Message delOrderInfo(String orderId,String ordSta) {
 		Message msg = new Message();
 		try {
 			
@@ -749,7 +881,7 @@ public class OrderServiceImpl implements OrderService {
 			else
 			{
 				orderInfo = (TblOrderInfo)infos.get(0);
-				orderInfo.setOrdSta(LTConstant.ORDER_DEL);
+				orderInfo.setDelFlag(ordSta);
 				baseDaoImpl.update(orderInfo);
 				msg.setRspCode("000000").setRspMsg("成功!");
 			}

@@ -102,6 +102,14 @@ $(document).ready(function(){
 var setAllDomain = function(){
 	basepath='';	
 	$("#curPageNO").val(1);
+	if(isWeiXinBrowse())
+	{
+		InitHeader();
+	}
+}
+
+var InitHeader =function(){
+	$('.header').hide();
 }
 
 function sendData(){

@@ -9,13 +9,15 @@ var setAllDomain = function(){
 }
 
 function userLogout(){
-	
 	$.post('user/Logout.action',function(data){
 		if(data.rspCode=="000000"){
 			window.location  = 'pages/Login/userLogin.jsp';
 		}
 	});
-	
+}
+
+var checkHaveShop = function(){
+	basepath='';	
 }
 
 

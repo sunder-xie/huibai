@@ -42,12 +42,16 @@ public class LTConstant {
 		05:交易关闭
 		99:删除状态
 	*/
+	public static final String ORDER_ALL = "99";
 	public static final String ORDER_WAIT_PAY = "01";
 	public static final String ORDER_PAY_END= "02";
 	public static final String ORDER_WAIT_RECV = "03";
 	public static final String ORDER_END = "04";
 	public static final String ORDER_CLOSE = "05";
-	public static final String ORDER_DEL = "99";
+	
+	public static final String ORDER_BUYER_DEL = "1";
+	public static final String ORDER_SALER_DEL = "2";
+	
 	
 	public static final String userInfo ="user_info";
 	public static final String loginKey ="loginKey";

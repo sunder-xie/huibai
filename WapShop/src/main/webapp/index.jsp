@@ -369,7 +369,7 @@
     }
     
 	</script>   
-<footer class="footer">
+<footer class="index-footer">
 	<ul class="footer-platforms">
 		<li class="w-3"><a
 			href="pages/download/download.jsp">客户端</a></li>

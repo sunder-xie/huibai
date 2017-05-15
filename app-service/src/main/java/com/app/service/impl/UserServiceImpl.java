@@ -17,6 +17,8 @@ import com.app.common.exception.DBException;
 import com.app.common.model.Message;
 import com.hlb.utils.date.DateUtil;
 import com.hlb.utils.security.UUID;
+import com.hlb.utils.string.StringUtils;
+import com.app.service.SeqService;
 import com.app.service.UserService;
 import com.app.bean.TblOauth2UserInfo;
 import com.app.bean.TblUserInfo;
@@ -27,6 +29,9 @@ public class UserServiceImpl implements UserService {
 	private Logger log = LoggerFactory.getLogger(this.getClass());
 	@Resource
 	private BaseDao baseDaoImpl;
+	
+	@Resource
+	private SeqService seqServiceImpl;
 	
 	@Override
 	@Transactional
@@ -41,12 +46,13 @@ public class UserServiceImpl implements UserService {
 					msg.setRspCode("000001").setRspMsg("用户已存在！");
 					return msg;
 				}
-				UUID uuid =new UUID();
-				userInfo.setId(uuid.getUUID());
+				String Id="u01"+seqServiceImpl.getSeqNo("seq_id");
+				userInfo.setId(Id);
 				BCryptPasswordEncoder encoder =new BCryptPasswordEncoder();
 				userInfo.setPassword(encoder.encode(userInfo.getPassword()));
 				userInfo.setRegDt(DateUtil.getCurrentDate(DateUtil.DATE_FORMAT_14));
 				userInfo.setUpdDt(userInfo.getRegDt());
+				userInfo.setPwdErrorNum(0);
 				baseDaoImpl.save(userInfo);
 				session.setAttribute(LTConstant.userInfo, userInfo);
 				msg.setRspCode("000000").setRspMsg("登录成功！");
@@ -282,6 +288,42 @@ public class UserServiceImpl implements UserService {
 				log.error("用户信息获取失败，用户名为[{}]",userId);
 			}
 		
+		return msg;
+	}
+	
+	
+	@Override
+	@Transactional
+	public Message GetUserInfo(TblUserInfo userInfo) {
+		log.info("开始获取用户信息");
+		Message msg = new Message();
+		try {
+				String hql = "from TblUserInfo t where ";
+				
+				if(!StringUtils.isEmpty(userInfo.getUsername()))
+				{
+					hql += "t.username = '"+userInfo.getUsername()+"'";
+					
+				}else if(!StringUtils.isEmpty(userInfo.getUserTel()))
+				{
+					hql += "t.userTel = '"+userInfo.getUserTel()+"'";
+				}else{
+					msg.setRspCode("000002").setRspMsg("参数错误！");
+					return msg;
+				}
+				
+				List infos = baseDaoImpl.queryByHQL(hql, null);
+				if(infos.size() > 0){
+					msg.setRspCode("000000").setRspMsg("用户信息获取成功！");
+				}
+				else
+				{
+					msg.setRspCode("000001").setRspMsg("用户不存在");
+				};
+			} catch (DBException e) {
+				msg.setRspCode("000001").setRspMsg("数据库异常");
+				log.error("用户信息获取失败，用户名为[{}]",userInfo.getUsername(),e);
+		}
 		return msg;
 	}
 	

@@ -143,7 +143,6 @@ public class OrderController {
 	@RequestMapping("GetOrderInfoBySaler")
 	public @ResponseBody Pager GetOrderInfoBySaler(Pager pages,HttpSession session,HttpServletRequest request,HttpServletResponse response){
 		Pager msg = new Pager();
-		//获取请求参数
 		Map<String,String> params = LTConstant.getParameters(request);
 		if(params == null){
 			msg.setRspCode("000002");
@@ -160,6 +159,34 @@ public class OrderController {
 			return msg;
 		}
 		return orderServiceImpl.getMerOrderListInfo(pages);
+	}
+	
+	/**
+	 * 获取order内容
+	 * */
+	@RequestMapping("GetOrderListBySaler")
+	public @ResponseBody Pager GetOrderListBySaler(Pager pages,HttpSession session){
+		
+		Object obj=session.getAttribute(LTConstant.userInfo);
+		String UserId="";
+		if(obj!=null)
+		{
+			TblUserInfo userinfo =(TblUserInfo)obj;
+			UserId=userinfo.getId();
+		}
+		else{
+			pages.setRspCode(ResCodeConstant.MSG_NOT_LOGIN);
+			pages.setRspMsg(ResCodeConstant.MSG_NOT_LOGIN_DESC);
+			return pages;
+		}
+		
+		if(!pages.getConditions().containsKey("shopId")){
+			pages.setRspCode(ResCodeConstant.MSG_PARAM_NOT_ENOUGH);
+			pages.setRspMsg("商家编号为空");	
+			return pages;
+		}
+		
+		return orderServiceImpl.getMerOrderList(pages);
 	}
 	
 	@RequestMapping("GetOrderInfoByOrderId")
@@ -221,11 +248,13 @@ public class OrderController {
 		Message msg = new Message();
 		Object obj=session.getAttribute(LTConstant.userInfo);
 		String UserId="";
+		String userNm="";
 		String emptyString="";
 		if(obj!=null)
 		{
 			TblUserInfo userinfo =(TblUserInfo)obj;
 			UserId=userinfo.getId();
+			userNm = userinfo.getUsername();
 		}
 		else{
 			msg.setRspCode(ResCodeConstant.MSG_NOT_LOGIN);
@@ -245,7 +274,7 @@ public class OrderController {
 			msg.setRspCode("000002").setRspMsg("参数["+emptyString+"]为空!");
 			return msg;
 		}
-		return orderServiceImpl.saveNewOrder(model,UserId);
+		return orderServiceImpl.saveNewOrder(model,UserId,userNm);
 	}
 	
 	/**
@@ -257,17 +286,19 @@ public class OrderController {
 		Message msg = new Message();
 		Object obj=session.getAttribute(LTConstant.userInfo);
 		String UserId="";
+		String userNm="";
 		if(obj!=null)
 		{
 			TblUserInfo userinfo =(TblUserInfo)obj;
 			UserId=userinfo.getId();
+			userNm = userinfo.getUsername();
 		}
 		else{
 			msg.setRspCode(ResCodeConstant.MSG_NOT_LOGIN);
 			msg.setRspMsg(ResCodeConstant.MSG_NOT_LOGIN_DESC);
 			return msg;
 		}
-		return orderServiceImpl.saveOrderInfoByCar(model,UserId);
+		return orderServiceImpl.saveOrderInfoByCar(model,UserId,userNm);
 	}
 	
 	/**
@@ -329,7 +360,7 @@ public class OrderController {
 	 * 删除订单信息
 	 * */
 	@RequestMapping("OrderDel")
-	public @ResponseBody Message OrderDel(HttpSession session,String OrderId){
+	public @ResponseBody Message OrderDel(HttpSession session,String OrderId,String userFlag){
 		
 		Message msg = new Message();
 		Object obj=session.getAttribute(LTConstant.userInfo);
@@ -346,10 +377,22 @@ public class OrderController {
 		}
 		if(StringUtils.isEmpty(OrderId))
 		{
-			msg.setRspCode("000002").setRspMsg("参数为空!");
+			msg.setRspCode("000002").setRspMsg("参数[OrderId]为空!");
 			return msg;
 		}
-		return orderServiceImpl.delOrderInfo(OrderId);
+		
+		if(StringUtils.isEmpty(userFlag))
+		{
+			msg.setRspCode("000002").setRspMsg("参数[userFlag]为空!");
+			return msg;
+		}
+		String ordSta = "";
+		if(userFlag.equals("1"))
+			ordSta=LTConstant.ORDER_BUYER_DEL;
+		else
+			ordSta=LTConstant.ORDER_SALER_DEL;
+		
+		return orderServiceImpl.delOrderInfo(OrderId,ordSta);
 	}
 	
 }

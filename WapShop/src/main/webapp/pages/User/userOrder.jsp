@@ -68,7 +68,7 @@ if( navigator.userAgent.match(/iPhone|iPad|iPod/i) ) {
 });
 </script>
 
-<title>商品列表</title>
+<title>我的订单</title>
 </head>
 <body>
 <div class="fanhui_cou">

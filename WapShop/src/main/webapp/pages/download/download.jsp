@@ -18,6 +18,20 @@
 <script charset="utf-8" src="js/bootstrap.min.js?v=01291"></script>
 <script charset="utf-8" src="js/global.js?v=01291"></script>
 <script charset="utf-8" src="js/template.js?v=01291"></script>
+<script type="text/javascript">
+
+	$(function(){
+		if(isWeiXinBrowse())
+		{
+			InitHeader();
+		}
+		
+	});
+
+	var InitHeader =function(){
+		$('.header').hide();
+	}
+</script>
 </head>
 <body>
 <header class="header">
@@ -36,9 +50,9 @@
 	</div>
 	
 	<div class="row">
-		<div class="list-group-item red-bg">
+		<div class="list-group-item red-bg" style="min-height:650px">
 			
-			<div class="app-download-img">
+			<div class="app-download-img mt50">
 				<img src="images/download.png"/>
 			</div>
 			

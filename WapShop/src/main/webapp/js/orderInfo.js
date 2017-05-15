@@ -128,7 +128,7 @@ function getOrderInfo(){
 			if(status=='01')
 			{
 				staDesc='等待买家付款';
-				staShow += '<h2 class="p5 ml50 white">'+staDesc+'</h2>';
+				staShow += '<h3 class="p5 ml50 white">'+staDesc+'</h2>';
 				var empty = $('#clock').val();
 				staShow+=empty.template('关闭订单');
 				
@@ -138,13 +138,13 @@ function getOrderInfo(){
 			}else if(status=='02')
 			{
 				staDesc='等待卖家发货';
-				staShow += '<h2 class="p5 ml50 white">'+staDesc+'</h2>';
+				staShow += '<h3 class="p5 ml50 white">'+staDesc+'</h2>';
 				var orderDate= formatStringyyyyMMddToyyyy_MM_ddhh_mm_ss(orderInfo.payDt);
 				orderDtCont += dtempty.template('付款时间',orderDate);
 			}else if(status=='03')
 			{
 				staDesc='待收货';
-				staShow += '<h2 class="p5 ml50 white">'+staDesc+'</h2>';
+				staShow += '<h3 class="p5 ml50 white">'+staDesc+'</h2>';
 				var empty = $('#opertion-text').val();
 				opertion +=empty.template(orderId,'recv','确认收货');
 				
@@ -156,7 +156,7 @@ function getOrderInfo(){
 			}else if(status=='04')
 			{
 				staDesc='交易完成';
-				staShow += '<h2 class="p5 ml50 white">'+staDesc+'</h2>';
+				staShow += '<h3 class="p5 ml50 white">'+staDesc+'</h2>';
 				
 				orderDate= formatStringyyyyMMddToyyyy_MM_ddhh_mm_ss(orderInfo.payDt);
 				orderDtCont += dtempty.template('付款时间',orderDate);
@@ -168,7 +168,7 @@ function getOrderInfo(){
 			}else if(status=='05')
 			{
 				staDesc='交易关闭';
-				staShow += '<h2 class="p5 ml50 white">'+staDesc+'</h2>';
+				staShow += '<h3 class="p5 ml50 white">'+staDesc+'</h2>';
 				var orderDate= formatStringyyyyMMddToyyyy_MM_ddhh_mm_ss(orderInfo.closeDt);
 				orderDtCont += dtempty.template('关闭时间',orderDate);
 				
@@ -203,7 +203,8 @@ var toDo = function(orderId,mode){
 
 var delOrder = function(orderId){
 	var param = {
-			'OrderId':currOrderId
+			'OrderId':orderId,
+			'userFlag':'1'
 		};
 	var url =basepath+ "Order/OrderDel.action";
 	$.post(url,param,function(data){

@@ -52,24 +52,34 @@ function handleUserPic(){
 </head>
 <body>
 <div class="maincontainer">
-<div class="container" style="max-width:768px;margin:0 auto;">
+<div class="container">
 	<div class="row">
 					<div class="member_top member_top_1">
+					 
 					  <a href="pages/User/userInfo.jsp?userId=<%=userinfo.getId() %>" style="display:block">
 						<div class="member_top_bg">
 							<img src="images/member_bg.png">
 						</div>
+						
 						<div class="member_m_pic member_m_pic_1">
-							<!-- <img class="img-circle" src="images/noavatar.png"> -->
-							<img class="img-circle" src="<%=userinfo.getPortrait() %>">
+							<%if(userinfo.getPortrait() == null){%>
+								<img class="img-circle"/>
+							<%}else{ %>
+								<img class="img-circle" src="<%=userinfo.getPortrait() %>" />
+							<%} %>
 						</div>
+						
 						<div class="member_m_z member_m_z_1">
-							<div class="member_m_x"><%=userinfo.getNickName() %></div>
+							<div class="member_m_x">
+							<em><%=userinfo.getNickName() %></em>
+							</div>
 						</div>
 						<div class="member_m_hy">
 							<div class="member_m_hy_x">普通会员</div>
 						</div>
 					 </a>
+					 <div class="member_m_r" style="top: 9px;">
+						<a href="pages/merchnt/merCenter.jsp">我要开店&gt;</a></div>
 						<div class="member_m_r">
 						<a href="pages/User/userSetting.jsp">设置&gt;</a></div>
 					</div>

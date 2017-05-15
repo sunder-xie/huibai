@@ -46,18 +46,21 @@ public interface OrderService {
 	public Message getOrderGoodsByOrderId(Map<String, String> params);
 
 
-	public Message saveOrderInfoByCar(BuyCarOrder model, String userId);
+	public Message saveOrderInfoByCar(BuyCarOrder model, String userId, String userNm);
 
 
 	public Message getOrderPayInfo(String orderId, String userId);
 
 
-	public Message saveNewOrder(BuyOrderReqModel model, String userId);
+	public Message saveNewOrder(BuyOrderReqModel model, String userId, String userNm);
 
 
 	public Message getOrderGoodsShortInfoByOrderId(String orderId);
 
 
-	public Message delOrderInfo(String orderId);
+	public Message delOrderInfo(String orderId,String ordSta);
+
+
+	public Pager getMerOrderList(Pager pages);
 	
 }

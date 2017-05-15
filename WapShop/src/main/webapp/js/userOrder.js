@@ -85,10 +85,19 @@ var setAllDomain = function(){
 	$("#keyword").val('');
 	$("#ord_sta").val(ord_sta);
 	$("#curPageNO").val(0);
+	if(isWeiXinBrowse())
+	{
+		InitHeader();
+	}
+}
+
+var InitHeader =function(){
+	$('.header').hide();
 }
 
 function sendData(){
 	$('#ajax_loading').show();
+	$("#container").html(""); 
 	getOrderLists();
 	$('#ajax_loading').hide();
 }
@@ -126,9 +135,8 @@ var getOrderLists = function(){
 	if(data.rspCode=="000000"){
 		var len = data.result.length;
 		var num= len < data.offset ? len :data.offset;
-		var total = data.total;
+		var total = data.pageCount;
 		var curPageNO = data.start;
-		$("#container").html(""); 
 		$("#ListTotal").val(total);
 		$("#curPageNO").val(curPageNO);
 		for(var j=0;j<num;j++){
@@ -203,16 +211,9 @@ var genOrderInfo = function(orders){
 var appendOrderLists = function(){
 	
 	var OrderList='';
-	var keyword ; //关键词
-//	alert(window.location.href);
-	keyword=$("#keyword").val();
-	if(isNull(keyword))
-	{
-		keyword='';
-	}
 	var startPageNo = $("#curPageNO").val();
 	var map={
-		"keyword":keyword
+		"ordSta":ord_sta
 	};
 	var param = {
 			start:startPageNo,
@@ -220,12 +221,12 @@ var appendOrderLists = function(){
 			conditions:map
 	};
 //	alert(JSON.stringify(param));
-    $.post('Search/serOrderShortInfListByKeyword.action',param,function(data){
+    $.post('Order/GetOrderListByBuyer.action',param,function(data){
 //	alert(JSON.stringify(data));
 	if(data.rspCode=="000000"){
 		var len = data.result.length;
 		var num= len < data.offset ? len :data.offset;
-		var total = data.total;
+		var total = data.pageCount;
 		var curPageNO = data.start;
 		$("#ListTotal").val(total);
 		$("#curPageNO").val(curPageNO);
@@ -246,4 +247,20 @@ var appendOrderLists = function(){
 }
 var payOrder= function(orderId){
 	window.location = "pages/UnionPay/payCenter.jsp?order_id="+orderId;
+}
+
+var delOrder = function(orderId){
+	var param = {
+			'OrderId':orderId,
+			'userFlag':'1'
+		};
+	var url =basepath+ "Order/OrderDel.action";
+	$.post(url,param,function(data){
+		if(data.rspCode=="000000"){
+			floatNotify.simple("删除成功！");
+			window.location = "pages/User/userOrder.jsp";
+		}else{
+			floatNotify.simple("系统异常");
+		}
+    },"json");
 }

@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.app.common.model.Message;
 import com.app.service.UserService;
 import com.hlb.utils.string.StringUtils;
+import com.app.ReqModel.NewUserRegReq;
+import com.app.SMS.model.CheckSmsValidModel;
+import com.app.SMS.service.SmsDealService;
 import com.app.bean.TblUserInfo;
 import com.app.common.utils.LTConstant;
 
@@ -26,6 +29,10 @@ public class UserController {
 	
 	@Resource
 	private UserService userServiceImpl;
+	
+	@Resource
+	private SmsDealService smsdealServiceImpl;
+	
 	/**
 	 * 用户注册服务
 	 * */
@@ -150,5 +157,106 @@ public class UserController {
 		}
 		
 		return userServiceImpl.updateUserPwd(username, oldpwd,newpwd, session);
+	}
+	
+	/**
+	 * 校验用户名是否存在
+	 * */
+	@RequestMapping("isUserNameExist")
+	public @ResponseBody Message isUserNameExist(String username) {
+		Message msg =  new Message();
+		
+		if(StringUtils.isEmpty(username))
+		{
+			msg.setRspCode("000003").setRspMsg("username为空！");
+			return msg;
+		}
+		TblUserInfo user =  new TblUserInfo();
+		user.setUsername(username);
+		msg = userServiceImpl.GetUserInfo(user);
+		return msg;
+	}
+	
+	/**
+	 * 校验手机号是否存在
+	 * */
+	@RequestMapping("isPhoneExist")
+	public @ResponseBody Message isPhoneExist(String telphone) {
+		Message msg =  new Message();
+		
+		if(StringUtils.isEmpty(telphone))
+		{
+			msg.setRspCode("000003").setRspMsg("username为空！");
+			return msg;
+		}
+		TblUserInfo user =  new TblUserInfo();
+		user.setUserTel(telphone);
+		msg = userServiceImpl.GetUserInfo(user);
+		return msg;
+	}
+	
+	/**
+	 * 用户注册服务
+	 * */
+	@RequestMapping("newUserReg")
+	public @ResponseBody Message newUserReg(NewUserRegReq userInfo,HttpSession session,HttpServletResponse response){
+		Message msg =new Message();
+		if(StringUtils.isEmpty(userInfo.getUsername()))
+		{
+			msg.setRspCode("000003").setRspMsg("用户名为空！");
+			return msg;
+		}
+		
+		if(StringUtils.isEmpty(userInfo.getPassword()))
+		{
+			msg.setRspCode("000003").setRspMsg("密码为空！");
+			return msg;
+		}
+		
+		if(StringUtils.isEmpty(userInfo.getTelphone()))
+		{
+			msg.setRspCode("000003").setRspMsg("手机号为空！");
+			return msg;
+		}
+		
+		if(StringUtils.isEmpty(userInfo.getSmsId()))
+		{
+			msg.setRspCode("000003").setRspMsg("验证码编号为空！");
+			return msg;
+		}
+		
+		if(StringUtils.isEmpty(userInfo.getSmsCode()))
+		{
+			msg.setRspCode("000003").setRspMsg("验证码为空！");
+			return msg;
+		}
+		
+		/*校验短信验证码是否有效*/
+		CheckSmsValidModel csvm = new CheckSmsValidModel();
+		csvm.setSmsId(userInfo.getSmsId());
+		csvm.setSmsCode(userInfo.getSmsCode());
+		msg = smsdealServiceImpl.checkSmsVaild(csvm);
+		if(!LTConstant.Success.equals(msg.getRspCode())){
+			return msg;
+		}
+		
+		TblUserInfo user =  new TblUserInfo(); 
+		user.setUsername(userInfo.getUsername());
+		user.setPassword(userInfo.getPassword());
+		user.setUserTel(userInfo.getTelphone());
+		user.setNickName(userInfo.getUsername());
+		msg =  userServiceImpl.saveUser(user,session);
+		if(LTConstant.Success.equals(msg.getRspCode())){//注册成功，进行Cookie的保存
+			BCryptPasswordEncoder encoder =new BCryptPasswordEncoder();
+			
+			String encoderStr = encoder.encode(user.getUsername()+"122");
+			LTConstant.userInfos.put(encoderStr, user);
+			Cookie cookie = new Cookie(LTConstant.userInfo,encoderStr);
+			// cookie的有效期为1个月
+			cookie.setMaxAge(24 * 60 * 60 * 30);
+			response.addCookie(cookie);
+		}
+		return msg;
+		
 	}
 }

@@ -1,20 +1,17 @@
 $(function(){
 	
-	if(error == '1'){
-		floatNotify.simple("您提供的用户名或密码有误");
-	}
-	
-	if(error == '2'){
-		floatNotify.simple("该用户已经登录！");
-	}
-	
 	if(isWeiXinBrowse())
 	{
-		//WeiXinLogin();
+		InitHeader();
+		$('#weixinLogin').show();
 	}
 	
 	checkInputEvent();
 });
+
+var InitHeader =function(){
+	$('.header').hide();
+}
 
 function checkInputEvent(){
 	$("#pwd").keypress(onNormalLogonKeyPress);

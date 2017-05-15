@@ -43,6 +43,7 @@ public class TblOrderInfo implements java.io.Serializable {
 	private String expressNo;
 	private String instDt;
 	private String modiDt;
+	private String delFlag;
 
 	public TblOrderInfo() {
 	}
@@ -55,7 +56,7 @@ public class TblOrderInfo implements java.io.Serializable {
 			String confirmDt, String closeDt, String autoDt, String userId, String userNm, String shopId, String shopNm,
 			String totalNum, String goodsAmt, String yfAmt, String totalAmt, String buyerMsg, String salerMsg,
 			String payAmt, String addrs, String person, String mobile, String ordSta, String paySta, String paySeq,
-			String payChannle, String express, String expressNo, String instDt, String modiDt) {
+			String payChannle, String express, String expressNo, String instDt, String modiDt,String delFlag) {
 		this.orderId = orderId;
 		this.sendChannle = sendChannle;
 		this.applyDt = applyDt;
@@ -86,6 +87,7 @@ public class TblOrderInfo implements java.io.Serializable {
 		this.expressNo = expressNo;
 		this.instDt = instDt;
 		this.modiDt = modiDt;
+		this.delFlag = delFlag;
 	}
 
 	@Id
@@ -358,6 +360,15 @@ public class TblOrderInfo implements java.io.Serializable {
 
 	public void setModiDt(String modiDt) {
 		this.modiDt = modiDt;
+	}
+	
+	@Column(name = "del_flag", length = 1)
+	public String getDelFlag() {
+		return this.delFlag;
+	}
+
+	public void setDelFlag(String delFlag) {
+		this.delFlag = delFlag;
 	}
 
 }

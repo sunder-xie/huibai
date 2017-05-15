@@ -58,13 +58,19 @@ h1, h2, h3{font-family: "Microsoft Yahei",Arial, Helvetica, sans-serif;}
 .white-bg{background:#fff;}
 .red-bg{background-color:#f63234;}
 .gary-bg{background:#eee;}
-.white-bg_2{max-width:768px;width:100%; margin:0 auto;height: 45px;background:#fff;}
+.white-bg_2{max-width:768px;width:100%; margin:0 auto;height: 50px;background:#fff;}
 /*itemdetail*/
 /* Customize container */
 @media (min-width: 760px) {
   .container {
     max-width: 768px!important;position: relative;/*background:#fff;*/
   }
+}
+
+.control-label {
+    padding-top: 7px;
+    margin-bottom: 0;
+    text-align: right;
 }
 .container-narrow > hr {
   margin: 30px 0;
@@ -165,7 +171,7 @@ border-color: #f93c09;
 .tit{color: #fff;/* font-size: 18px; */font-weight: normal;height: 100%; text-align: center;font-size:18px;}
 .fixed-foot{height: 50px; z-index: 999; position: fixed; bottom: 0;left: 0; right: 0;width:100%; }
 .fixed_inner{margin:0 auto;position: relative;background:#fff;border-top:1px solid #ccc; max-width: 768px;}
-.footer{margin-bottom: 50px;}
+.index-footer{margin-bottom: 50px;}
 .foot-con{width:100%;height:49px;position:fixed; z-index:100; right:0; bottom:0;}
 .foot-con_2{margin:0 auto;max-width:768px;background:#fff;height: 50px;border-top:1px solid #ccc;}
 .foot-con_2 a:active{color:#666;}

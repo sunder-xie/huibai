@@ -177,6 +177,37 @@ public class DateUtil {
 		}
 		return 0;
 		}
+	
+	
+	/**
+	 * 比较2个（yyyyMMddhhmmss）大小
+	 * @return
+	 */
+	public static long get_second_space(String DATE1, String DATE2) {
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		long interval =0L;
+		
+		try {
+			DATE1 = changeTime(DATE1);
+			DATE2 = changeTime(DATE2);
+			Date dt1 = df.parse(DATE1);
+			Date dt2 = df.parse(DATE2);
+			
+			if (dt1.getTime() > dt2.getTime()) {
+				
+				interval = (dt1.getTime() - dt2.getTime())/1000;
+			} else if (dt1.getTime() < dt2.getTime()) {
+				
+				interval = (dt2.getTime() - dt1.getTime())/1000;
+			} else {
+				interval =  0;
+			}
+		} catch (Exception exception) {
+			exception.printStackTrace();
+		}
+		return interval;
+	}
+	
 	/**
 	 * 计算两个日期相差的月数
 	 * @param date1 <String>

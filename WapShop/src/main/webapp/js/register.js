@@ -1,8 +1,173 @@
+var contextPath = 'user';
+
+$(document).ready(function(){
+
+	if(isWeiXinBrowse())
+	{
+		InitHeader();
+	}
+	
+	  //性别：单选
+	  /* $("#gradenameboy").click(function(){
+	        var parent = document.getElementById("gradenameboy");
+	        $("#gradenameboy").removeClass("checked");
+	        parent.className = parent.className + " checked";
+	        $("#gradenamegirl").removeClass("checked");
+	        $('#sex').val(1);
+	  });
+	  $("#gradenamegirl").click(function(){
+	        var parent = document.getElementById("gradenamegirl");
+	        $("#gradenamegirl").removeClass("checked");
+	        parent.className = parent.className + " checked";
+	        $("#gradenameboy").removeClass("checked");
+	        $('#sex').val(0);
+	  }); */
+	  
+	  //当光标离开 姓名时，验证姓名
+	  $("#username").blur(function(){
+		  checkName();
+	  });
+	  
+	  //当光标离开 手机时，验证手机
+	  $("#mobile").blur(function(){
+		  checkPhone();
+	  });
+	  
+	//当光标离开 密码时，验证密码
+	  $("#password").blur(function(){
+		  checkPassword();
+	  });
+	  
+	//当光标离开 密码时，验证密码
+	  $("#repassword").blur(function(){
+		  checkRePassword();
+	  });
+	  
+	  //获取手机验证码
+	  $('.get_mobile_code').click(function(){
+		  //var randNum = $("#randNum").val();
+		  var _this = this;
+		  
+	      if(checkPhone()){
+	    	  var param ={
+	    			  'username':$("#username").val(),
+	    			  'telphone':$("#mobile").val()
+	    	  }
+	    	  $.post("Sms/SendRegSms.action",param,function(data){
+	    		  //alert(JSON.stringify(data));
+					if(data.rspCode=="000000"){
+						var smsid = data.objs;
+						//alert(smsid);
+						$("#sms_id").val(smsid)
+						mycountDown(_this,60);
+					}else{
+						floatNotify.simple('发送验证码失败，请重试！');
+					}
+				},"json");
+		}
+	      
+	      /* if(checkPhone()){
+	        	if(validateRandNum(contextPath)){
+	      	  $.ajax({
+	      			url: contextPath + "/sendSMSCode", 
+	      			data:{"userName":$("#username").val(),"mobile":$("#mobile").val(),"randNum":randNum},
+	      			type:'post', 
+	      			dataType : 'json', 
+	      			async : false,   
+	      			error: function(jqXHR, textStatus, errorThrown) {
+	      		 		alert(textStatus, errorThrown);
+	      			},
+	      			success:function(retData){		
+	      				if(retData=="OK"){
+	  	    		    	mycountDown(_this,60);
+	      				}else{
+	  						alert("图形验证码不正确");    					
+	      				}
+	      			}
+	      	  });
+	        }
+	  	} */
+	 });
+ 
+});
+
+var InitHeader =function(){
+	$('.header').hide();
+}
+
+//切换图形验证码
+ function changeRandImg(contextPath){
+        var obj = document.getElementById("randImage") ;
+        obj.src = contextPath + "/validCoder.random?d=" + new Date();
+     }
+     
+//验证图形验证码
+function validateRandNum (contextPath){
+	var checkResult = checkRandNum();
+	if(!checkResult){
+		 //验证失败，返回
+		return checkResult;
+	}
+	var randNum = document.getElementById("randNum").value;
+	var result = true;
+		var data = {
+            	"randNum": randNum
+            };
+	    jQuery.ajax({
+			url: contextPath + "/validateRandImg", 
+			type:'post', 
+			data:data,
+			async : false, //默认为true 异步   
+		    dataType : 'json', 
+			error: function(jqXHR, textStatus, errorThrown) {
+			},
+			success:function(retData){
+				 if(!retData){
+					 	result = retData;
+					 	alert("图形验证码错误");
+					 	document.getElementById("randNum").value="";
+					 	//document.getElementById('randNum').focus() ;
+					 	changeRandImg(contextPath);
+				 }
+			}
+			});	 
+	 
+	 return result;
+}
+
+function checkRandNum (){
+	var error;
+	var inputVal = document.getElementById('randNum');
+	//如果找不到对象则表示不用验证
+	if(inputVal == null){
+		return true;
+	}
+	
+	if(inputVal.value==null||inputVal.value==''){
+	 	alert("请输入图形验证码");
+	  //inputVal.focus() ;
+	  return false; //验证失败
+	 }
+	 if(inputVal.value.length!=4){
+		 alert("请输入4位图形验证码");
+		return false; //验证失败
+	 }
+	 return true;
+}
+
+
+
 //提交
-function formSubmit(){
+function userReg(){
 	
         var postData={};var flag = true;
-        
+        var chooseflag = false;
+        chooseflag =$("input[type='checkbox']").is(':checked');
+        if(chooseflag==false)
+        {
+        	floatNotify.simple('请同意注册协议！');
+        	return;
+        }
         var username = $('input[name=username]').val();
         if(checkName()){ //验证姓名
         	postData['username']=username;
@@ -11,12 +176,12 @@ function formSubmit(){
         	return;
         }
         
-//        if(checkPhone()){//验证手机
-//        	postData['mobile']=$('input[name=mobile]').val();
-//        }else{
-//        	flag = false;
-//        	return;
-//        }
+        if(checkPhone()){//验证手机
+        	postData['telphone']=$('input[name=mobile]').val();
+        }else{
+        	flag = false;
+        	return;
+        }
         
         if(checkPassword()){//验证密码
             postData['password']=$('input[name=password]').val();
@@ -34,16 +199,21 @@ function formSubmit(){
 //        	postData['sex'] = $('input[name=sex]').val();
 //        }
 //        
-//        postData['mobileCode'] = $('input[name=mobile_code]').val();
+        postData['smsCode'] = $('input[name=mobile_code]').val();
+        
+        postData['smsId'] = $('input[name=sms_id]').val();
 //        
 //        postData['parentUserName'] = $("#parentUserName").val();
         var param = postData;
         
+//        alert(JSON.stringify(param));
+        
         if(flag){
         	
-        	$.post("user/Register.action",param,function(data){
+        	$.post("user/newUserReg.action",param,function(data){
+        		
 				if(data.rspCode=="000000"){
-					window.location.href=contextPath+"/userCenter.jsp";
+					window.location.href="pages/User/userCenter.jsp";
 				}else{
 					floatNotify.simple(data.rspMsg+'注册失败，请重试');
 				}
@@ -87,8 +257,8 @@ function isPhone(str){
 function isPhoneExist(phone) {
 	var result = true;
 	$.ajax({
-			url: contextPath + "/isPhoneExist", 
-			data: {"phone":phone},
+			url: contextPath + "/isPhoneExist.action", 
+			data: {"telphone":phone},
 			type:'post', 
 			async : false, //默认为true 异步   
 			dataType : 'json', 
@@ -96,8 +266,8 @@ function isPhoneExist(phone) {
 				 //console.log(textStatus, errorThrown);
 				},
 			success:function(retData){
-				if(retData){
-					result = false;
+				if(retData.rspCode=="000000"){
+		 			result=false;
 				}
 			}
 		});
@@ -110,22 +280,22 @@ function checkName(){
 	var result=true;
 	var username = $('input[name=username]').val();
 	if(isBlank(username)){
-		floatNotify.simple('请输入您的姓名');
+		floatNotify.simple('请输入您的账号');
 		return false;
 	}else if(username.length < 2){
-		floatNotify.simple('姓名长度不能少于2个字符');
+		floatNotify.simple('账号长度不能少于2个字符');
 		return false;
 	}else{
 	       $.ajax({
-				url: contextPath + "/isNickNameExist", 
-				data: {"nickName":username},
+				url: contextPath + "/isUserNameExist.action", 
+				data: {"username":username},
 				type:'post', 
 				async : false, //默认为true 异步   
 				error: function(jqXHR, textStatus, errorThrown) {
 			 		 //console.log(textStatus, errorThrown);
 				},
 				success:function(retData){
-			 		if('true' == retData){
+			 		if(retData.rspCode=="000000"){
 			 			floatNotify.simple('姓名已经存在');
 			 			result=false;
 					}
@@ -176,6 +346,21 @@ function checkPassword(){
 	return true;
 }
 
+//方法，验证密码
+function checkRePassword(){
+	
+	var password = $('input[name=password]').val();
+	
+	var repassword = $('input[name=repassword]').val();
+	
+	if(password!=repassword){
+        floatNotify.simple('两次密码不相同！');
+        return false;
+     }
+	
+	return true;
+}
+
 /** 倒计时函数 **/
 function mycountDown(obj,second){
 
@@ -186,7 +371,7 @@ function mycountDown(obj,second){
        $(obj).attr('disabled', true);
        
        // 按钮里的内容呈现倒计时状态
-       $(obj).val("发送短信中"+'('+second+')');
+       $(obj).val("已发送"+'('+second+')');
        
        // 时间减一
        second--;
@@ -214,7 +399,7 @@ function bindingMycountDown(obj,second){
        $(obj).attr('disabled', true);
        
        // 按钮里的内容呈现倒计时状态
-       $(obj).html("发送短信中"+'('+second+')');
+       $(obj).html("已发送"+'('+second+')');
        
        // 时间减一
        second--;

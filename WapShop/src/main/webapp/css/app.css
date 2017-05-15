@@ -62,3 +62,25 @@
 	background-repeat: no-repeat;
 	background-position: 10px 8px;
 }
+
+.OAuthLogin{
+	text-align: center;
+}
+.OAuthLogin li{
+	padding: 20px 0;
+}
+.OAuthLogin span{
+	border: 1px solid;
+    border-radius: 16px;
+    padding: 10px 60px;
+    font-size: 20px;
+}
+
+.OAuthLogin span em{
+	margin-left:30px;
+}
+.OAuthLogin .weixin{
+	background-image: url(../images/weixin50.png);
+	background-repeat: no-repeat;
+	background-position: -15px -30px;
+}

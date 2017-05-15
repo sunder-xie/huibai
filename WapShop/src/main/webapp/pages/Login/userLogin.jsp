@@ -15,8 +15,7 @@
 <title>会员登录</title>
 <link rel="stylesheet" href="css/bootstrap.css?v=01291">
 <link rel="stylesheet" href="css/style.css?v=1?v=01291">
-<link rel="stylesheet" href="css/member.css?v=01291">
-<link rel="stylesheet" href="css/order3.css?v=01291">
+<link rel="stylesheet" href="css/app.css?v=1?v=01291">
 <script charset="utf-8" src="js/global.js?v=01291"></script>
 <script charset="utf-8" src="js/bootstrap.min.js?v=01291"></script>
 <script charset="utf-8" src="js/template.js?v=01291"></script>
@@ -60,9 +59,12 @@
 					<button type="button" class="btn btn-info btn-block"
 						onclick="userLogin();" tabindex="5">登 录</button>
 					<button type="button" class="btn btn-default btn-block"
-						onclick="userReg()" tabindex="6">注
-						册</button>
+						onclick="userReg()" tabindex="6">注册</button>
 				</div>
+				
+				<ul class="OAuthLogin mt50">
+					<li style="display:none" id="weixinLogin"><a href="javascript:WeiXinLogin()"><span class="weixin"><em>免注册直接登录</em></span></a></li>
+				</ul>
 			</form>
 		</div>
      </div>

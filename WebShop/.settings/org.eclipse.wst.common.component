@@ -22,6 +22,9 @@
         <dependent-module archiveName="app-OAuth2-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/app-OAuth2/app-OAuth2">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="app-SMS-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/app-SMS/app-SMS">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <dependent-module archiveName="base_utils-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/app-base-utils/app-base-utils">
             <dependency-type>uses</dependency-type>
         </dependent-module>
